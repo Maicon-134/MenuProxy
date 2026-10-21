@@ -57,6 +57,8 @@
     .line 8
     move-result-object p0
 
+    invoke-static {p0, p1}, Lcom/mdk/ff/UIHelper;->setupHomeScreen(Landroid/view/View;Landroid/content/Context;)V
+
     .line 9
     return-object p0
 .end method

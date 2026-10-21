@@ -2779,6 +2779,8 @@
     .line 10
     iput-object p1, p0, Lcom/mdk/ff/MainActivity;->permSheet:Landroid/view/View;
 
+    invoke-static {p1, p0}, Lcom/mdk/ff/UIHelper;->setupPermissionsSheet(Landroid/view/View;Landroid/content/Context;)V
+
     .line 11
     .line 12
     const/16 v0, 0x1392
@@ -4110,6 +4112,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_prefill
+    invoke-static {p0}, Lcom/mdk/ff/UIHelper;->setupLoginScreen(Landroid/app/Activity;)V
 
     .line 38
     .line 39

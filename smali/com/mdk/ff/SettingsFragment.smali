@@ -67,6 +67,12 @@
     .line 9
     iput-object p1, p0, Lcom/mdk/ff/SettingsFragment;->root:Landroid/view/View;
 
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/mdk/ff/UIHelper;->setupSettingsScreen(Landroid/view/View;Landroid/content/Context;)V
+
     .line 10
     .line 11
     return-object p1
@@ -109,7 +115,7 @@
 .end method
 
 .method public refresh()V
-    .locals 1
+    .locals 2
 
     .line 1
     iget-object v0, p0, Lcom/mdk/ff/SettingsFragment;->root:Landroid/view/View;
@@ -121,6 +127,12 @@
     .line 4
     .line 5
     invoke-direct {p0, v0}, Lcom/mdk/ff/SettingsFragment;->refreshAdbStatus(Landroid/view/View;)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/mdk/ff/UIHelper;->setupSettingsScreen(Landroid/view/View;Landroid/content/Context;)V
 
     .line 6
     .line 7
