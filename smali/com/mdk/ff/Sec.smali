@@ -176,7 +176,138 @@
 .method public static native hwid(Landroid/content/Context;)Ljava/lang/String;
 .end method
 
-.method public static native sstr(I)Ljava/lang/String;
+.method public static sstr(I)Ljava/lang/String;
+    .locals 1
+
+    packed-switch p0, :pswitch_data_0
+
+    const-string v0, ""
+
+    return-object v0
+
+    :pswitch_0
+    const-string v0, "https://mdk.lol/api/m/auth"
+
+    return-object v0
+
+    :pswitch_1
+    const-string v0, "https://mdk.lol/api/m/session"
+
+    return-object v0
+
+    :pswitch_2
+    const-string v0, "{\"testCodePatch\":true}"
+
+    return-object v0
+
+    :pswitch_3
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files"
+
+    return-object v0
+
+    :pswitch_4
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/localConfig.json"
+
+    return-object v0
+
+    :pswitch_5
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/h"
+
+    return-object v0
+
+    :pswitch_6
+    const-string v0, "{\"testCodePatch\":true,\"resetGuest\":true}"
+
+    return-object v0
+
+    :pswitch_7
+    const-string v0, "http://173.249.15.159:6767/aG5tN8xJ3cD6yF1qP7sM"
+
+    return-object v0
+
+    :pswitch_8
+    const-string v0, "https://mdk.lol/api/m/cp2"
+
+    return-object v0
+
+    :pswitch_9
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes"
+
+    return-object v0
+
+    :pswitch_a
+    const-string v0, "android_id"
+
+    return-object v0
+
+    :pswitch_b
+    const-string v0, "deviceUniqueId"
+
+    return-object v0
+
+    :pswitch_c
+    const-string v0, "9774d56d682e549c"
+
+    return-object v0
+
+    :pswitch_d
+    const-string v0, "SHA-256"
+
+    return-object v0
+
+    :pswitch_e
+    const-string v0, "http://173.249.15.159:6767/rZ4bK9mQ2wX7pV5nT8dL"
+
+    return-object v0
+
+    :pswitch_f
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/gameassetbundles/codepatch"
+
+    return-object v0
+
+    :pswitch_10
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/gameassetbundles/codepatch/assembly-csharp-patch."
+
+    return-object v0
+
+    :pswitch_11
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/fileinfo"
+
+    return-object v0
+
+    :pswitch_12
+    const-string v0, "/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android"
+
+    return-object v0
+
+    :pswitch_13
+    const-string v0, "232iATElb1Xw392NplYUl~2BwONYU~3D"
+
+    return-object v0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+        :pswitch_10
+        :pswitch_11
+        :pswitch_12
+        :pswitch_13
+    .end packed-switch
 .end method
 
 .method public static native tokenFile(Ljava/lang/String;)Ljava/lang/String;
