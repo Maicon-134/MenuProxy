@@ -4093,45 +4093,23 @@
     .line 15
     .line 16
     .line 17
-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    const/16 v0, 0xc81
 
-    .line 18
-    .line 19
-    .line 20
+    invoke-virtual {p0, v0}, LIIlIll;->findViewById(I)Landroid/view/View;
+
     move-result-object v0
 
-    .line 21
-    new-instance v1, Ljava/lang/Thread;
+    instance-of v1, v0, Landroid/widget/TextView;
 
-    .line 22
-    .line 23
-    new-instance v2, Lcom/mdk/ff/lIl;
+    if-eqz v1, :cond_prefill
 
-    .line 24
-    .line 25
-    invoke-direct {v2, v0, p0}, Lcom/mdk/ff/lIl;-><init>(Landroid/content/Context;Lcom/mdk/ff/MainActivity;)V
+    check-cast v0, Landroid/widget/TextView;
 
-    .line 26
-    .line 27
-    .line 28
-    const-string v0, "U6URuH3PBrVv6Q=="
+    const-string v1, "aquilesteam"
 
-    .line 29
-    .line 30
-    invoke-static {v0}, Lcom/mdk/ff/SF;->d(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 31
-    .line 32
-    .line 33
-    move-result-object v0
-
-    .line 34
-    invoke-direct {v1, v2, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-
-    .line 35
-    .line 36
-    .line 37
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+    :cond_prefill
 
     .line 38
     .line 39
