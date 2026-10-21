@@ -83,10 +83,18 @@
     return p0
 .end method
 
-.method public static native saveLogin(Landroid/content/Context;Ljava/lang/String;)V
+.method public static saveLogin(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public static native savedLogin(Landroid/content/Context;)Ljava/lang/String;
+.method public static savedLogin(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "aquilesteam"
+
+    return-object v0
 .end method
 
 .method public static setResetGuest(Landroid/content/Context;Z)V

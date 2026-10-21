@@ -36,6 +36,12 @@
 
 # virtual methods
 .method public final run()V
+    .locals 0
+
+    return-void
+.end method
+
+.method private dead_run()V
     .locals 6
 
     .line 1
