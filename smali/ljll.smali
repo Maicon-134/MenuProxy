@@ -1,0 +1,81 @@
+.class public abstract Lljll;
+.super Ljava/lang/Object;
+.source "r8-map-id-c42f52cd50172dc03d46d075f54b0ce1d92c4c955d7e0535b7a325c990eb9378"
+
+
+# direct methods
+.method public static assert(Ljava/lang/Object;)I
+    .locals 0
+
+    .line 1
+    check-cast p0, Landroid/graphics/drawable/Icon;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResId()I
+
+    .line 4
+    .line 5
+    .line 6
+    move-result p0
+
+    .line 7
+    return p0
+.end method
+
+.method public static break(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 0
+
+    .line 1
+    check-cast p0, Landroid/graphics/drawable/Icon;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResPackage()Ljava/lang/String;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    return-object p0
+.end method
+
+.method public static case(Ljava/lang/Object;)I
+    .locals 0
+
+    .line 1
+    check-cast p0, Landroid/graphics/drawable/Icon;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getType()I
+
+    .line 4
+    .line 5
+    .line 6
+    move-result p0
+
+    .line 7
+    return p0
+.end method
+
+.method public static catch(Ljava/lang/Object;)Landroid/net/Uri;
+    .locals 0
+
+    .line 1
+    check-cast p0, Landroid/graphics/drawable/Icon;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getUri()Landroid/net/Uri;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    return-object p0
+.end method

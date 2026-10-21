@@ -1,0 +1,1613 @@
+.class public Ljjlj;
+.super Ljava/lang/Object;
+.source "r8-map-id-c42f52cd50172dc03d46d075f54b0ce1d92c4c955d7e0535b7a325c990eb9378"
+
+# interfaces
+.implements Lm0;
+
+
+# instance fields
+.field public final assert:Landroid/content/Context;
+
+.field public break:Landroid/widget/ListAdapter;
+
+.field public case:LIllllIll;
+
+.field public final catch:I
+
+.field public class:I
+
+.field public const:I
+
+.field public continue:I
+
+.field public final default:I
+
+.field public else:Z
+
+.field public enum:Z
+
+.field public extends:Z
+
+.field public final:I
+
+.field public final finally:I
+
+.field public for:LlIlllIII;
+
+.field public goto:Landroid/view/View;
+
+.field public implements:Landroid/widget/AdapterView$OnItemClickListener;
+
+.field public import:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+.field public final instanceof:LjIjj;
+
+.field public final interface:LjjlI;
+
+.field public final native:Ljjll;
+
+.field public final new:LjIjj;
+
+.field public final package:Landroid/os/Handler;
+
+.field public final private:Landroid/graphics/Rect;
+
+.field public protected:Landroid/graphics/Rect;
+
+.field public public:Z
+
+.field public final return:LllIlIII;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    .locals 3
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    const/4 p4, -0x2
+
+    .line 5
+    iput p4, p0, Ljjlj;->catch:I
+
+    .line 6
+    .line 7
+    iput p4, p0, Ljjlj;->class:I
+
+    .line 8
+    .line 9
+    const/16 p4, 0x3ea
+
+    .line 10
+    .line 11
+    iput p4, p0, Ljjlj;->default:I
+
+    .line 12
+    .line 13
+    const/4 p4, 0x0
+
+    .line 14
+    iput p4, p0, Ljjlj;->final:I
+
+    .line 15
+    .line 16
+    const v0, 0x7fffffff
+
+    .line 17
+    .line 18
+    .line 19
+    iput v0, p0, Ljjlj;->finally:I
+
+    .line 20
+    .line 21
+    new-instance v0, LjIjj;
+
+    .line 22
+    .line 23
+    const/4 v1, 0x1
+
+    .line 24
+    invoke-direct {v0, p0, v1}, LjIjj;-><init>(Ljjlj;I)V
+
+    .line 25
+    .line 26
+    .line 27
+    iput-object v0, p0, Ljjlj;->instanceof:LjIjj;
+
+    .line 28
+    .line 29
+    new-instance v0, LjjlI;
+
+    .line 30
+    .line 31
+    invoke-direct {v0, p4, p0}, LjjlI;-><init>(ILjava/lang/Object;)V
+
+    .line 32
+    .line 33
+    .line 34
+    iput-object v0, p0, Ljjlj;->interface:LjjlI;
+
+    .line 35
+    .line 36
+    new-instance v0, Ljjll;
+
+    .line 37
+    .line 38
+    invoke-direct {v0, p0}, Ljjll;-><init>(Ljjlj;)V
+
+    .line 39
+    .line 40
+    .line 41
+    iput-object v0, p0, Ljjlj;->native:Ljjll;
+
+    .line 42
+    .line 43
+    new-instance v0, LjIjj;
+
+    .line 44
+    .line 45
+    invoke-direct {v0, p0, p4}, LjIjj;-><init>(Ljjlj;I)V
+
+    .line 46
+    .line 47
+    .line 48
+    iput-object v0, p0, Ljjlj;->new:LjIjj;
+
+    .line 49
+    .line 50
+    new-instance v0, Landroid/graphics/Rect;
+
+    .line 51
+    .line 52
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    .line 53
+    .line 54
+    .line 55
+    iput-object v0, p0, Ljjlj;->private:Landroid/graphics/Rect;
+
+    .line 56
+    .line 57
+    iput-object p1, p0, Ljjlj;->assert:Landroid/content/Context;
+
+    .line 58
+    .line 59
+    new-instance v0, Landroid/os/Handler;
+
+    .line 60
+    .line 61
+    invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
+
+    .line 62
+    .line 63
+    .line 64
+    move-result-object v2
+
+    .line 65
+    invoke-direct {v0, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    .line 66
+    .line 67
+    .line 68
+    iput-object v0, p0, Ljjlj;->package:Landroid/os/Handler;
+
+    .line 69
+    .line 70
+    sget-object v0, Ljljlj;->goto:[I
+
+    .line 71
+    .line 72
+    invoke-virtual {p1, p2, v0, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+
+    .line 73
+    .line 74
+    .line 75
+    move-result-object v0
+
+    .line 76
+    invoke-virtual {v0, p4, p4}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
+
+    .line 77
+    .line 78
+    .line 79
+    move-result v2
+
+    .line 80
+    iput v2, p0, Ljjlj;->const:I
+
+    .line 81
+    .line 82
+    invoke-virtual {v0, v1, p4}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
+
+    .line 83
+    .line 84
+    .line 85
+    move-result v2
+
+    .line 86
+    iput v2, p0, Ljjlj;->continue:I
+
+    .line 87
+    .line 88
+    if-eqz v2, :cond_0
+
+    .line 89
+    .line 90
+    iput-boolean v1, p0, Ljjlj;->else:Z
+
+    .line 91
+    .line 92
+    :cond_0
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    .line 93
+    .line 94
+    .line 95
+    new-instance v0, LllIlIII;
+
+    .line 96
+    .line 97
+    invoke-direct {v0, p1, p2, p3, p4}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+
+    .line 98
+    .line 99
+    .line 100
+    sget-object v2, Ljljlj;->interface:[I
+
+    .line 101
+    .line 102
+    invoke-virtual {p1, p2, v2, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+
+    .line 103
+    .line 104
+    .line 105
+    move-result-object p2
+
+    .line 106
+    const/4 p3, 0x2
+
+    .line 107
+    invoke-virtual {p2, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    .line 108
+    .line 109
+    .line 110
+    move-result v2
+
+    .line 111
+    if-eqz v2, :cond_1
+
+    .line 112
+    .line 113
+    invoke-virtual {p2, p3, p4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    .line 114
+    .line 115
+    .line 116
+    move-result p3
+
+    .line 117
+    invoke-static {v0, p3}, LIjjjj;->case(Landroid/widget/PopupWindow;Z)V
+
+    .line 118
+    .line 119
+    .line 120
+    :cond_1
+    invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    .line 121
+    .line 122
+    .line 123
+    move-result p3
+
+    .line 124
+    if-eqz p3, :cond_2
+
+    .line 125
+    .line 126
+    invoke-virtual {p2, p4, p4}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    .line 127
+    .line 128
+    .line 129
+    move-result p3
+
+    .line 130
+    if-eqz p3, :cond_2
+
+    .line 131
+    .line 132
+    invoke-static {p1, p3}, Lp0;->protected(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+
+    .line 133
+    .line 134
+    .line 135
+    move-result-object p1
+
+    .line 136
+    goto :goto_0
+
+    .line 137
+    :cond_2
+    invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    .line 138
+    .line 139
+    .line 140
+    move-result-object p1
+
+    .line 141
+    :goto_0
+    invoke-virtual {v0, p1}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 142
+    .line 143
+    .line 144
+    invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
+
+    .line 145
+    .line 146
+    .line 147
+    iput-object v0, p0, Ljjlj;->return:LllIlIII;
+
+    .line 148
+    .line 149
+    invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setInputMethodMode(I)V
+
+    .line 150
+    .line 151
+    .line 152
+    return-void
+.end method
+
+
+# virtual methods
+.method public assert(Landroid/content/Context;Z)LIllllIll;
+    .locals 0
+
+    .line 1
+    new-instance p0, LIllllIll;
+
+    .line 2
+    .line 3
+    invoke-direct {p0, p1, p2}, LIllllIll;-><init>(Landroid/content/Context;Z)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-object p0
+.end method
+
+.method public final break()Z
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Ljjlj;->return:LllIlIII;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Landroid/widget/PopupWindow;->isShowing()Z
+
+    .line 4
+    .line 5
+    .line 6
+    move-result p0
+
+    .line 7
+    return p0
+.end method
+
+.method public final case()I
+    .locals 0
+
+    .line 1
+    iget p0, p0, Ljjlj;->const:I
+
+    .line 2
+    .line 3
+    return p0
+.end method
+
+.method public final catch()V
+    .locals 13
+
+    .line 1
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 2
+    .line 3
+    iget-object v1, p0, Ljjlj;->assert:Landroid/content/Context;
+
+    .line 4
+    .line 5
+    const/4 v2, 0x1
+
+    .line 6
+    iget-object v3, p0, Ljjlj;->return:LllIlIII;
+
+    .line 7
+    .line 8
+    const/4 v4, 0x0
+
+    .line 9
+    if-nez v0, :cond_1
+
+    .line 10
+    .line 11
+    iget-boolean v0, p0, Ljjlj;->public:Z
+
+    .line 12
+    .line 13
+    xor-int/2addr v0, v2
+
+    .line 14
+    invoke-virtual {p0, v1, v0}, Ljjlj;->assert(Landroid/content/Context;Z)LIllllIll;
+
+    .line 15
+    .line 16
+    .line 17
+    move-result-object v0
+
+    .line 18
+    iput-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 19
+    .line 20
+    iget-object v5, p0, Ljjlj;->break:Landroid/widget/ListAdapter;
+
+    .line 21
+    .line 22
+    invoke-virtual {v0, v5}, Landroid/widget/AbsListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    .line 23
+    .line 24
+    .line 25
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 26
+    .line 27
+    iget-object v5, p0, Ljjlj;->implements:Landroid/widget/AdapterView$OnItemClickListener;
+
+    .line 28
+    .line 29
+    invoke-virtual {v0, v5}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+
+    .line 30
+    .line 31
+    .line 32
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 33
+    .line 34
+    invoke-virtual {v0, v2}, Landroid/view/View;->setFocusable(Z)V
+
+    .line 35
+    .line 36
+    .line 37
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 38
+    .line 39
+    invoke-virtual {v0, v2}, Landroid/view/View;->setFocusableInTouchMode(Z)V
+
+    .line 40
+    .line 41
+    .line 42
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 43
+    .line 44
+    new-instance v5, LjIIj;
+
+    .line 45
+    .line 46
+    invoke-direct {v5, v4, p0}, LjIIj;-><init>(ILjava/lang/Object;)V
+
+    .line 47
+    .line 48
+    .line 49
+    invoke-virtual {v0, v5}, Landroid/widget/AdapterView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
+    .line 50
+    .line 51
+    .line 52
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 53
+    .line 54
+    iget-object v5, p0, Ljjlj;->native:Ljjll;
+
+    .line 55
+    .line 56
+    invoke-virtual {v0, v5}, Landroid/widget/AbsListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
+
+    .line 57
+    .line 58
+    .line 59
+    iget-object v0, p0, Ljjlj;->import:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    .line 60
+    .line 61
+    if-eqz v0, :cond_0
+
+    .line 62
+    .line 63
+    iget-object v5, p0, Ljjlj;->case:LIllllIll;
+
+    .line 64
+    .line 65
+    invoke-virtual {v5, v0}, Landroid/widget/AdapterView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
+    .line 66
+    .line 67
+    .line 68
+    :cond_0
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 69
+    .line 70
+    invoke-virtual {v3, v0}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
+
+    .line 71
+    .line 72
+    .line 73
+    goto :goto_0
+
+    .line 74
+    :cond_1
+    invoke-virtual {v3}, Landroid/widget/PopupWindow;->getContentView()Landroid/view/View;
+
+    .line 75
+    .line 76
+    .line 77
+    move-result-object v0
+
+    .line 78
+    check-cast v0, Landroid/view/ViewGroup;
+
+    .line 79
+    .line 80
+    :goto_0
+    invoke-virtual {v3}, Landroid/widget/PopupWindow;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    .line 81
+    .line 82
+    .line 83
+    move-result-object v0
+
+    .line 84
+    iget-object v5, p0, Ljjlj;->private:Landroid/graphics/Rect;
+
+    .line 85
+    .line 86
+    if-eqz v0, :cond_2
+
+    .line 87
+    .line 88
+    invoke-virtual {v0, v5}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
+
+    .line 89
+    .line 90
+    .line 91
+    iget v0, v5, Landroid/graphics/Rect;->top:I
+
+    .line 92
+    .line 93
+    iget v6, v5, Landroid/graphics/Rect;->bottom:I
+
+    .line 94
+    .line 95
+    add-int/2addr v6, v0
+
+    .line 96
+    iget-boolean v7, p0, Ljjlj;->else:Z
+
+    .line 97
+    .line 98
+    if-nez v7, :cond_3
+
+    .line 99
+    .line 100
+    neg-int v0, v0
+
+    .line 101
+    iput v0, p0, Ljjlj;->continue:I
+
+    .line 102
+    .line 103
+    goto :goto_1
+
+    .line 104
+    :cond_2
+    invoke-virtual {v5}, Landroid/graphics/Rect;->setEmpty()V
+
+    .line 105
+    .line 106
+    .line 107
+    move v6, v4
+
+    .line 108
+    :cond_3
+    :goto_1
+    invoke-virtual {v3}, Landroid/widget/PopupWindow;->getInputMethodMode()I
+
+    .line 109
+    .line 110
+    .line 111
+    move-result v0
+
+    .line 112
+    const/4 v7, 0x2
+
+    .line 113
+    if-ne v0, v7, :cond_4
+
+    .line 114
+    .line 115
+    move v0, v2
+
+    .line 116
+    goto :goto_2
+
+    .line 117
+    :cond_4
+    move v0, v4
+
+    .line 118
+    :goto_2
+    iget-object v8, p0, Ljjlj;->goto:Landroid/view/View;
+
+    .line 119
+    .line 120
+    iget v9, p0, Ljjlj;->continue:I
+
+    .line 121
+    .line 122
+    invoke-static {v3, v8, v9, v0}, LjIjl;->assert(Landroid/widget/PopupWindow;Landroid/view/View;IZ)I
+
+    .line 123
+    .line 124
+    .line 125
+    move-result v0
+
+    .line 126
+    iget v8, p0, Ljjlj;->catch:I
+
+    .line 127
+    .line 128
+    const/4 v9, -0x2
+
+    .line 129
+    const/4 v10, -0x1
+
+    .line 130
+    if-ne v8, v10, :cond_5
+
+    .line 131
+    .line 132
+    add-int/2addr v0, v6
+
+    .line 133
+    goto :goto_5
+
+    .line 134
+    :cond_5
+    iget v11, p0, Ljjlj;->class:I
+
+    .line 135
+    .line 136
+    if-eq v11, v9, :cond_7
+
+    .line 137
+    .line 138
+    const/high16 v12, 0x40000000    # 2.0f
+
+    .line 139
+    .line 140
+    if-eq v11, v10, :cond_6
+
+    .line 141
+    .line 142
+    invoke-static {v11, v12}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    .line 143
+    .line 144
+    .line 145
+    move-result v1
+
+    .line 146
+    goto :goto_3
+
+    .line 147
+    :cond_6
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    .line 148
+    .line 149
+    .line 150
+    move-result-object v1
+
+    .line 151
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    .line 152
+    .line 153
+    .line 154
+    move-result-object v1
+
+    .line 155
+    iget v1, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    .line 156
+    .line 157
+    iget v11, v5, Landroid/graphics/Rect;->left:I
+
+    .line 158
+    .line 159
+    iget v5, v5, Landroid/graphics/Rect;->right:I
+
+    .line 160
+    .line 161
+    add-int/2addr v11, v5
+
+    .line 162
+    sub-int/2addr v1, v11
+
+    .line 163
+    invoke-static {v1, v12}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    .line 164
+    .line 165
+    .line 166
+    move-result v1
+
+    .line 167
+    goto :goto_3
+
+    .line 168
+    :cond_7
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    .line 169
+    .line 170
+    .line 171
+    move-result-object v1
+
+    .line 172
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    .line 173
+    .line 174
+    .line 175
+    move-result-object v1
+
+    .line 176
+    iget v1, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    .line 177
+    .line 178
+    iget v11, v5, Landroid/graphics/Rect;->left:I
+
+    .line 179
+    .line 180
+    iget v5, v5, Landroid/graphics/Rect;->right:I
+
+    .line 181
+    .line 182
+    add-int/2addr v11, v5
+
+    .line 183
+    sub-int/2addr v1, v11
+
+    .line 184
+    const/high16 v5, -0x80000000
+
+    .line 185
+    .line 186
+    invoke-static {v1, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    .line 187
+    .line 188
+    .line 189
+    move-result v1
+
+    .line 190
+    :goto_3
+    iget-object v5, p0, Ljjlj;->case:LIllllIll;
+
+    .line 191
+    .line 192
+    invoke-virtual {v5, v1, v0}, LIllllIll;->assert(II)I
+
+    .line 193
+    .line 194
+    .line 195
+    move-result v0
+
+    .line 196
+    if-lez v0, :cond_8
+
+    .line 197
+    .line 198
+    iget-object v1, p0, Ljjlj;->case:LIllllIll;
+
+    .line 199
+    .line 200
+    invoke-virtual {v1}, Landroid/view/View;->getPaddingTop()I
+
+    .line 201
+    .line 202
+    .line 203
+    move-result v1
+
+    .line 204
+    iget-object v5, p0, Ljjlj;->case:LIllllIll;
+
+    .line 205
+    .line 206
+    invoke-virtual {v5}, Landroid/view/View;->getPaddingBottom()I
+
+    .line 207
+    .line 208
+    .line 209
+    move-result v5
+
+    .line 210
+    add-int/2addr v5, v1
+
+    .line 211
+    add-int/2addr v5, v6
+
+    .line 212
+    goto :goto_4
+
+    .line 213
+    :cond_8
+    move v5, v4
+
+    .line 214
+    :goto_4
+    add-int/2addr v0, v5
+
+    .line 215
+    :goto_5
+    invoke-virtual {v3}, Landroid/widget/PopupWindow;->getInputMethodMode()I
+
+    .line 216
+    .line 217
+    .line 218
+    move-result v1
+
+    .line 219
+    if-ne v1, v7, :cond_9
+
+    .line 220
+    .line 221
+    move v1, v2
+
+    .line 222
+    goto :goto_6
+
+    .line 223
+    :cond_9
+    move v1, v4
+
+    .line 224
+    :goto_6
+    iget v5, p0, Ljjlj;->default:I
+
+    .line 225
+    .line 226
+    invoke-static {v3, v5}, LIjjjj;->catch(Landroid/widget/PopupWindow;I)V
+
+    .line 227
+    .line 228
+    .line 229
+    invoke-virtual {v3}, Landroid/widget/PopupWindow;->isShowing()Z
+
+    .line 230
+    .line 231
+    .line 232
+    move-result v5
+
+    .line 233
+    if-eqz v5, :cond_15
+
+    .line 234
+    .line 235
+    iget-object v5, p0, Ljjlj;->goto:Landroid/view/View;
+
+    .line 236
+    .line 237
+    sget-object v6, Lk5;->assert:Ljava/util/WeakHashMap;
+
+    .line 238
+    .line 239
+    invoke-static {v5}, Lx4;->break(Landroid/view/View;)Z
+
+    .line 240
+    .line 241
+    .line 242
+    move-result v5
+
+    .line 243
+    if-nez v5, :cond_a
+
+    .line 244
+    .line 245
+    goto/16 :goto_e
+
+    .line 246
+    .line 247
+    :cond_a
+    iget v5, p0, Ljjlj;->class:I
+
+    .line 248
+    .line 249
+    if-ne v5, v10, :cond_b
+
+    .line 250
+    .line 251
+    move v5, v10
+
+    .line 252
+    goto :goto_7
+
+    .line 253
+    :cond_b
+    if-ne v5, v9, :cond_c
+
+    .line 254
+    .line 255
+    iget-object v5, p0, Ljjlj;->goto:Landroid/view/View;
+
+    .line 256
+    .line 257
+    invoke-virtual {v5}, Landroid/view/View;->getWidth()I
+
+    .line 258
+    .line 259
+    .line 260
+    move-result v5
+
+    .line 261
+    :cond_c
+    :goto_7
+    if-ne v8, v10, :cond_11
+
+    .line 262
+    .line 263
+    if-eqz v1, :cond_d
+
+    .line 264
+    .line 265
+    move v8, v0
+
+    .line 266
+    goto :goto_8
+
+    .line 267
+    :cond_d
+    move v8, v10
+
+    .line 268
+    :goto_8
+    iget v0, p0, Ljjlj;->class:I
+
+    .line 269
+    .line 270
+    if-eqz v1, :cond_f
+
+    .line 271
+    .line 272
+    if-ne v0, v10, :cond_e
+
+    .line 273
+    .line 274
+    move v0, v10
+
+    .line 275
+    goto :goto_9
+
+    .line 276
+    :cond_e
+    move v0, v4
+
+    .line 277
+    :goto_9
+    invoke-virtual {v3, v0}, Landroid/widget/PopupWindow;->setWidth(I)V
+
+    .line 278
+    .line 279
+    .line 280
+    invoke-virtual {v3, v4}, Landroid/widget/PopupWindow;->setHeight(I)V
+
+    .line 281
+    .line 282
+    .line 283
+    goto :goto_a
+
+    .line 284
+    :cond_f
+    if-ne v0, v10, :cond_10
+
+    .line 285
+    .line 286
+    move v4, v10
+
+    .line 287
+    :cond_10
+    invoke-virtual {v3, v4}, Landroid/widget/PopupWindow;->setWidth(I)V
+
+    .line 288
+    .line 289
+    .line 290
+    invoke-virtual {v3, v10}, Landroid/widget/PopupWindow;->setHeight(I)V
+
+    .line 291
+    .line 292
+    .line 293
+    goto :goto_a
+
+    .line 294
+    :cond_11
+    if-ne v8, v9, :cond_12
+
+    .line 295
+    .line 296
+    move v8, v0
+
+    .line 297
+    :cond_12
+    :goto_a
+    invoke-virtual {v3, v2}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
+
+    .line 298
+    .line 299
+    .line 300
+    iget-object v4, p0, Ljjlj;->goto:Landroid/view/View;
+
+    .line 301
+    .line 302
+    move v0, v5
+
+    .line 303
+    iget v5, p0, Ljjlj;->const:I
+
+    .line 304
+    .line 305
+    iget v6, p0, Ljjlj;->continue:I
+
+    .line 306
+    .line 307
+    if-gez v0, :cond_13
+
+    .line 308
+    .line 309
+    move v7, v10
+
+    .line 310
+    goto :goto_b
+
+    .line 311
+    :cond_13
+    move v7, v0
+
+    .line 312
+    :goto_b
+    if-gez v8, :cond_14
+
+    .line 313
+    .line 314
+    move v8, v10
+
+    .line 315
+    :cond_14
+    invoke-virtual/range {v3 .. v8}, Landroid/widget/PopupWindow;->update(Landroid/view/View;IIII)V
+
+    .line 316
+    .line 317
+    .line 318
+    return-void
+
+    .line 319
+    :cond_15
+    iget v1, p0, Ljjlj;->class:I
+
+    .line 320
+    .line 321
+    if-ne v1, v10, :cond_16
+
+    .line 322
+    .line 323
+    move v1, v10
+
+    .line 324
+    goto :goto_c
+
+    .line 325
+    :cond_16
+    if-ne v1, v9, :cond_17
+
+    .line 326
+    .line 327
+    iget-object v1, p0, Ljjlj;->goto:Landroid/view/View;
+
+    .line 328
+    .line 329
+    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
+
+    .line 330
+    .line 331
+    .line 332
+    move-result v1
+
+    .line 333
+    :cond_17
+    :goto_c
+    if-ne v8, v10, :cond_18
+
+    .line 334
+    .line 335
+    move v8, v10
+
+    .line 336
+    goto :goto_d
+
+    .line 337
+    :cond_18
+    if-ne v8, v9, :cond_19
+
+    .line 338
+    .line 339
+    move v8, v0
+
+    .line 340
+    :cond_19
+    :goto_d
+    invoke-virtual {v3, v1}, Landroid/widget/PopupWindow;->setWidth(I)V
+
+    .line 341
+    .line 342
+    .line 343
+    invoke-virtual {v3, v8}, Landroid/widget/PopupWindow;->setHeight(I)V
+
+    .line 344
+    .line 345
+    .line 346
+    invoke-static {v3, v2}, LjIjI;->break(Landroid/widget/PopupWindow;Z)V
+
+    .line 347
+    .line 348
+    .line 349
+    invoke-virtual {v3, v2}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
+
+    .line 350
+    .line 351
+    .line 352
+    iget-object v0, p0, Ljjlj;->interface:LjjlI;
+
+    .line 353
+    .line 354
+    invoke-virtual {v3, v0}, Landroid/widget/PopupWindow;->setTouchInterceptor(Landroid/view/View$OnTouchListener;)V
+
+    .line 355
+    .line 356
+    .line 357
+    iget-boolean v0, p0, Ljjlj;->extends:Z
+
+    .line 358
+    .line 359
+    if-eqz v0, :cond_1a
+
+    .line 360
+    .line 361
+    iget-boolean v0, p0, Ljjlj;->enum:Z
+
+    .line 362
+    .line 363
+    invoke-static {v3, v0}, LIjjjj;->case(Landroid/widget/PopupWindow;Z)V
+
+    .line 364
+    .line 365
+    .line 366
+    :cond_1a
+    iget-object v0, p0, Ljjlj;->protected:Landroid/graphics/Rect;
+
+    .line 367
+    .line 368
+    invoke-static {v3, v0}, LjIjI;->assert(Landroid/widget/PopupWindow;Landroid/graphics/Rect;)V
+
+    .line 369
+    .line 370
+    .line 371
+    iget-object v0, p0, Ljjlj;->goto:Landroid/view/View;
+
+    .line 372
+    .line 373
+    iget v1, p0, Ljjlj;->const:I
+
+    .line 374
+    .line 375
+    iget v4, p0, Ljjlj;->continue:I
+
+    .line 376
+    .line 377
+    iget v5, p0, Ljjlj;->final:I
+
+    .line 378
+    .line 379
+    invoke-static {v3, v0, v1, v4, v5}, LIjjjI;->assert(Landroid/widget/PopupWindow;Landroid/view/View;III)V
+
+    .line 380
+    .line 381
+    .line 382
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 383
+    .line 384
+    invoke-virtual {v0, v10}, Landroid/widget/AdapterView;->setSelection(I)V
+
+    .line 385
+    .line 386
+    .line 387
+    iget-boolean v0, p0, Ljjlj;->public:Z
+
+    .line 388
+    .line 389
+    if-eqz v0, :cond_1b
+
+    .line 390
+    .line 391
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 392
+    .line 393
+    invoke-virtual {v0}, LIllllIll;->isInTouchMode()Z
+
+    .line 394
+    .line 395
+    .line 396
+    move-result v0
+
+    .line 397
+    if-eqz v0, :cond_1c
+
+    .line 398
+    .line 399
+    :cond_1b
+    iget-object v0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 400
+    .line 401
+    if-eqz v0, :cond_1c
+
+    .line 402
+    .line 403
+    invoke-virtual {v0, v2}, LIllllIll;->setListSelectionHidden(Z)V
+
+    .line 404
+    .line 405
+    .line 406
+    invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
+
+    .line 407
+    .line 408
+    .line 409
+    :cond_1c
+    iget-boolean v0, p0, Ljjlj;->public:Z
+
+    .line 410
+    .line 411
+    if-nez v0, :cond_1d
+
+    .line 412
+    .line 413
+    iget-object v0, p0, Ljjlj;->package:Landroid/os/Handler;
+
+    .line 414
+    .line 415
+    iget-object p0, p0, Ljjlj;->new:LjIjj;
+
+    .line 416
+    .line 417
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    .line 418
+    .line 419
+    .line 420
+    :cond_1d
+    :goto_e
+    return-void
+.end method
+
+.method public final class()Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Ljjlj;->return:LllIlIII;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Landroid/widget/PopupWindow;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p0
+
+    .line 7
+    return-object p0
+.end method
+
+.method public final default()LIllllIll;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Ljjlj;->case:LIllllIll;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public final dismiss()V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, Ljjlj;->return:LllIlIII;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
+
+    .line 4
+    .line 5
+    .line 6
+    const/4 v1, 0x0
+
+    .line 7
+    invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
+
+    .line 8
+    .line 9
+    .line 10
+    iput-object v1, p0, Ljjlj;->case:LIllllIll;
+
+    .line 11
+    .line 12
+    iget-object v0, p0, Ljjlj;->package:Landroid/os/Handler;
+
+    .line 13
+    .line 14
+    iget-object p0, p0, Ljjlj;->instanceof:LjIjj;
+
+    .line 15
+    .line 16
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    .line 17
+    .line 18
+    .line 19
+    return-void
+.end method
+
+.method public final else(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Ljjlj;->return:LllIlIII;
+
+    .line 2
+    .line 3
+    invoke-virtual {p0, p1}, Landroid/widget/PopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+.method public final extends(I)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Ljjlj;->continue:I
+
+    .line 2
+    .line 3
+    const/4 p1, 0x1
+
+    .line 4
+    iput-boolean p1, p0, Ljjlj;->else:Z
+
+    .line 5
+    .line 6
+    return-void
+.end method
+
+.method public final finally(I)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Ljjlj;->const:I
+
+    .line 2
+    .line 3
+    return-void
+.end method
+
+.method public final goto()I
+    .locals 1
+
+    .line 1
+    iget-boolean v0, p0, Ljjlj;->else:Z
+
+    .line 2
+    .line 3
+    if-nez v0, :cond_0
+
+    .line 4
+    .line 5
+    const/4 p0, 0x0
+
+    .line 6
+    return p0
+
+    .line 7
+    :cond_0
+    iget p0, p0, Ljjlj;->continue:I
+
+    .line 8
+    .line 9
+    return p0
+.end method
+
+.method public import(Landroid/widget/ListAdapter;)V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, Ljjlj;->for:LlIlllIII;
+
+    .line 2
+    .line 3
+    if-nez v0, :cond_0
+
+    .line 4
+    .line 5
+    new-instance v0, LlIlllIII;
+
+    .line 6
+    .line 7
+    const/4 v1, 0x1
+
+    .line 8
+    invoke-direct {v0, v1, p0}, LlIlllIII;-><init>(ILjava/lang/Object;)V
+
+    .line 9
+    .line 10
+    .line 11
+    iput-object v0, p0, Ljjlj;->for:LlIlllIII;
+
+    .line 12
+    .line 13
+    goto :goto_0
+
+    .line 14
+    :cond_0
+    iget-object v1, p0, Ljjlj;->break:Landroid/widget/ListAdapter;
+
+    .line 15
+    .line 16
+    if-eqz v1, :cond_1
+
+    .line 17
+    .line 18
+    invoke-interface {v1, v0}, Landroid/widget/Adapter;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
+
+    .line 19
+    .line 20
+    .line 21
+    :cond_1
+    :goto_0
+    iput-object p1, p0, Ljjlj;->break:Landroid/widget/ListAdapter;
+
+    .line 22
+    .line 23
+    if-eqz p1, :cond_2
+
+    .line 24
+    .line 25
+    iget-object v0, p0, Ljjlj;->for:LlIlllIII;
+
+    .line 26
+    .line 27
+    invoke-interface {p1, v0}, Landroid/widget/Adapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
+
+    .line 28
+    .line 29
+    .line 30
+    :cond_2
+    iget-object p1, p0, Ljjlj;->case:LIllllIll;
+
+    .line 31
+    .line 32
+    if-eqz p1, :cond_3
+
+    .line 33
+    .line 34
+    iget-object p0, p0, Ljjlj;->break:Landroid/widget/ListAdapter;
+
+    .line 35
+    .line 36
+    invoke-virtual {p1, p0}, Landroid/widget/AbsListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    .line 37
+    .line 38
+    .line 39
+    :cond_3
+    return-void
+.end method
+
+.method public final instanceof(I)V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, Ljjlj;->return:LllIlIII;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0}, Landroid/widget/PopupWindow;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    if-eqz v0, :cond_0
+
+    .line 8
+    .line 9
+    iget-object v1, p0, Ljjlj;->private:Landroid/graphics/Rect;
+
+    .line 10
+    .line 11
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
+
+    .line 12
+    .line 13
+    .line 14
+    iget v0, v1, Landroid/graphics/Rect;->left:I
+
+    .line 15
+    .line 16
+    iget v1, v1, Landroid/graphics/Rect;->right:I
+
+    .line 17
+    .line 18
+    add-int/2addr v0, v1
+
+    .line 19
+    add-int/2addr v0, p1
+
+    .line 20
+    iput v0, p0, Ljjlj;->class:I
+
+    .line 21
+    .line 22
+    return-void
+
+    .line 23
+    :cond_0
+    iput p1, p0, Ljjlj;->class:I
+
+    .line 24
+    .line 25
+    return-void
+.end method
