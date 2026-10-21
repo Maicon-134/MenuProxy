@@ -49,55 +49,12 @@
 .end method
 
 .method public final onServiceFound(Landroid/net/nsd/NsdServiceInfo;)V
-    .locals 2
+    .locals 1
 
-    .line 1
-    invoke-virtual {p1}, Landroid/net/nsd/NsdServiceInfo;->getServiceType()Ljava/lang/String;
+    iget-object v0, p0, LlIIIll;->assert:Landroid/content/Context;
 
-    .line 2
-    .line 3
-    .line 4
-    move-result-object v0
+    invoke-static {v0, p1}, Lcom/mdk/ff/AdbManager;->enum(Landroid/content/Context;Landroid/net/nsd/NsdServiceInfo;)V
 
-    .line 5
-    if-eqz v0, :cond_0
-
-    .line 6
-    .line 7
-    const-string v1, "X6UYuHzTEflr7ZpVwD4J"
-
-    .line 8
-    .line 9
-    invoke-static {v1}, Lcom/mdk/ff/SF;->d(Ljava/lang/String;)Ljava/lang/String;
-
-    .line 10
-    .line 11
-    .line 12
-    move-result-object v1
-
-    .line 13
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    .line 14
-    .line 15
-    .line 16
-    move-result v0
-
-    .line 17
-    if-eqz v0, :cond_0
-
-    .line 18
-    .line 19
-    iget-object p0, p0, LlIIIll;->assert:Landroid/content/Context;
-
-    .line 20
-    .line 21
-    invoke-static {p0, p1}, Lcom/mdk/ff/AdbManager;->enum(Landroid/content/Context;Landroid/net/nsd/NsdServiceInfo;)V
-
-    .line 22
-    .line 23
-    .line 24
-    :cond_0
     return-void
 .end method
 

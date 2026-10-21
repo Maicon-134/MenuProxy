@@ -40,7 +40,7 @@
 
 .field public static final START_UNSUPPORTED:I = 0x1
 
-.field private static volatile discovering:Z
+.field public static volatile discovering:Z
 
 .field private static discoveryListener:Landroid/net/nsd/NsdManager$DiscoveryListener;
 
@@ -50,7 +50,7 @@
 
 .field private static final pairing:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private static final replyPosted:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public static final replyPosted:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 .field private static final resolving:Ljava/util/concurrent/atomic/AtomicBoolean;
 

@@ -106,6 +106,8 @@
     .line 16
     invoke-static {v0}, Lcom/mdk/ff/AdbManager;->onServiceDestroyed(Landroid/content/Context;)V
 
+    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->onStopPairingService(Landroid/content/Context;)V
+
     .line 17
     .line 18
     .line 19
@@ -156,6 +158,8 @@
 
     .line 16
     invoke-static {p1}, Lcom/mdk/ff/AdbManager;->startDiscovery(Landroid/content/Context;)V
+
+    invoke-static {p1}, Lcom/mdk/ff/UIHelper;->onStartPairingService(Landroid/content/Context;)V
 
     .line 17
     .line 18
