@@ -518,53 +518,33 @@
     move-result-object v1
 
     .line 35
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_empty_tok
 
-    .line 36
-    .line 37
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
-    .line 38
-    .line 39
-    .line 40
     move-result v2
 
-    .line 41
     if-eqz v2, :cond_1
 
-    .line 42
-    .line 43
-    goto :goto_0
+    :cond_empty_tok
+    const-string v1, "aquilesteam"
 
-    .line 44
     :cond_1
     invoke-static {v1}, Lcom/mdk/ff/Sec;->tokenFile(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 45
-    .line 46
-    .line 47
     move-result-object v1
 
-    .line 48
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_empty_file
 
-    .line 49
-    .line 50
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
-    .line 51
-    .line 52
-    .line 53
     move-result v2
 
-    .line 54
     if-eqz v2, :cond_2
 
-    .line 55
-    .line 56
-    goto :goto_0
+    :cond_empty_file
+    const-string v1, "0c351e5038023f0c2e561c"
 
-    .line 57
     :cond_2
     const/4 v2, 0x2
 

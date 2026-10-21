@@ -88,49 +88,326 @@
 .method public static native buildHandshake(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 .end method
 
-.method public static native cmdCatAb(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdCatAb(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "cat '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' > '"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdCatCpb(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdCatCpb(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "cat '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' > '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdCatFi(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdCatFi(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "cat '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' > '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/fileinfo' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/fileinfo'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdCleanup()Ljava/lang/String;
+.method public static cmdCleanup()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "rm -f '/storage/emulated/0/Android/data/com.dts.freefireth/files/localConfig.json' '/storage/emulated/0/Android/data/com.dts.freefireth/files/h' '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes'"
+
+    return-object v0
 .end method
 
-.method public static native cmdDelete()Ljava/lang/String;
+.method public static cmdDelete()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "rm -f '/storage/emulated/0/Android/data/com.dts.freefireth/files/localConfig.json' '/storage/emulated/0/Android/data/com.dts.freefireth/files/h' '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes'"
+
+    return-object v0
 .end method
 
-.method public static native cmdForceStop(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdForceStop(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "am force-stop "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdInjectPayload(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdInjectPayload(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "mkdir -p '/storage/emulated/0/Android/data/com.dts.freefireth/files' && printf '%s' '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' > '/storage/emulated/0/Android/data/com.dts.freefireth/files/localConfig.json' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/localConfig.json' ; printf '%s' 'aquilesteam' > '/storage/emulated/0/Android/data/com.dts.freefireth/files/h' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/h'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdRead()Ljava/lang/String;
+.method public static cmdRead()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "cat '/storage/emulated/0/Android/data/com.dts.freefireth/files/localConfig.json'"
+
+    return-object v0
 .end method
 
-.method public static native cmdReadSize(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdReadSize(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "stat -c %s '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' 2>/dev/null || wc -c < '"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' 2>/dev/null"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdUninstall(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdUninstall(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "pm uninstall "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdWriteAb(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdWriteAb(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "mkdir -p '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/gameassetbundles/codepatch' && cp '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' '"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' && chmod 0660 '"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdWriteCp(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdWriteCp(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "mkdir -p '/storage/emulated/0/Android/data/com.dts.freefireth/files' && cp '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdWriteCpb(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdWriteCpb(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "mkdir -p '/storage/emulated/0/Android/data/com.dts.freefireth/files' && cp '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/Assembly-CSharp-patch.bytes'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdWriteFi(Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdWriteFi(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "mkdir -p '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android' && cp '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/fileinfo' && chmod 0660 '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Compulsory/android/fileinfo'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static native cmdWriteToggles(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method public static cmdWriteToggles(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const-string p1, "0c351e5038023f0c2e561c"
+
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "mkdir -p '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Temp' && printf '%s' '"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "' | base64 -d > '/storage/emulated/0/Android/data/com.dts.freefireth/files/contentcache/Temp/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static ensureArmed(Landroid/content/Context;)V
@@ -310,7 +587,12 @@
     .end packed-switch
 .end method
 
-.method public static native tokenFile(Ljava/lang/String;)Ljava/lang/String;
+.method public static tokenFile(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "0c351e5038023f0c2e561c"
+
+    return-object v0
 .end method
 
 .method public static native xorHex(Ljava/lang/String;I)Ljava/lang/String;

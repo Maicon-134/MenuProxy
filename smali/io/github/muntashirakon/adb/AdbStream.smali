@@ -15,7 +15,7 @@
 
 .field private volatile mPendingClose:Z
 
-.field private final mReadBuffer:Ljava/nio/ByteBuffer;
+.field private mReadBuffer:Ljava/nio/ByteBuffer;
 
 .field private final mReadQueue:Ljava/util/Queue;
     .annotation system Ldalvik/annotation/Signature;
@@ -773,29 +773,11 @@
 
     .line 53
     .line 54
-    iget-object v2, p0, Lio/github/muntashirakon/adb/AdbStream;->mReadBuffer:Ljava/nio/ByteBuffer;
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    .line 55
-    .line 56
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+    move-result-object v1
 
-    .line 57
-    .line 58
-    .line 59
-    iget-object v2, p0, Lio/github/muntashirakon/adb/AdbStream;->mReadBuffer:Ljava/nio/ByteBuffer;
-
-    .line 60
-    .line 61
-    invoke-virtual {v2, v1}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
-
-    .line 62
-    .line 63
-    .line 64
-    iget-object v1, p0, Lio/github/muntashirakon/adb/AdbStream;->mReadBuffer:Ljava/nio/ByteBuffer;
-
-    .line 65
-    .line 66
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    iput-object v1, p0, Lio/github/muntashirakon/adb/AdbStream;->mReadBuffer:Ljava/nio/ByteBuffer;
 
     .line 67
     .line 68
