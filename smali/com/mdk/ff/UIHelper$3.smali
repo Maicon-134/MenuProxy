@@ -32,7 +32,7 @@
         }
     .end annotation
 
-    .line 611
+    .line 592
     iput-object p1, p0, Lcom/mdk/ff/UIHelper$3;->val$activity:Landroid/app/Activity;
 
     iput p2, p0, Lcom/mdk/ff/UIHelper$3;->val$selectedIndex:I
@@ -47,13 +47,13 @@
 .method public run()V
     .locals 2
 
-    .line 614
+    .line 595
     iget-object v0, p0, Lcom/mdk/ff/UIHelper$3;->val$activity:Landroid/app/Activity;
 
     iget v1, p0, Lcom/mdk/ff/UIHelper$3;->val$selectedIndex:I
 
     invoke-static {v0, v1}, Lcom/mdk/ff/UIHelper;->formatBottomNav(Landroid/app/Activity;I)V
 
-    .line 615
+    .line 596
     return-void
 .end method

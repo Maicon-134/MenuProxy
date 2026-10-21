@@ -37,25 +37,25 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 40
+    .line 33
     const/4 v0, 0x0
 
     sput-object v0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
 
-    .line 41
+    .line 34
     const-string v1, "127.0.0.1"
 
     sput-object v1, Lcom/mdk/ff/UIHelper;->lastAdbHost:Ljava/lang/String;
 
-    .line 42
+    .line 35
     const/4 v1, 0x0
 
     sput v1, Lcom/mdk/ff/UIHelper;->lastAdbPort:I
 
-    .line 44
+    .line 37
     sput-object v0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
-    .line 45
+    .line 38
     sput-object v0, Lcom/mdk/ff/UIHelper;->pairingScannerThread:Ljava/lang/Thread;
 
     return-void
@@ -64,176 +64,104 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 38
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static attachFullScreenParticleView(Landroid/app/Activity;)V
-    .locals 5
+.method private static addParticleBackground(Landroid/view/ViewGroup;Landroid/content/Context;)V
+    .locals 3
 
-    .line 53
-    if-eqz p0, :cond_5
+    .line 46
+    if-eqz p0, :cond_3
 
-    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_3
-
-    .line 54
-    :cond_0
-    sput-object p0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
-
-    .line 56
-    :try_start_0
-    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    .line 57
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_3
-
-    .line 58
-    new-instance v2, Landroid/graphics/drawable/ColorDrawable;
-
-    const/high16 v3, -0x1000000
-
-    invoke-direct {v2, v3}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
-
-    invoke-virtual {v0, v2}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 59
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
-
-    .line 60
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setNavigationBarColor(I)V
-
-    .line 62
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 63
-    instance-of v2, v0, Landroid/view/ViewGroup;
-
-    if-eqz v2, :cond_3
-
-    .line 64
-    check-cast v0, Landroid/view/ViewGroup;
-
-    .line 65
-    nop
-
-    .line 66
-    const/4 v2, 0x0
-
-    :goto_0
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v3
-
-    if-ge v2, v3, :cond_2
-
-    .line 67
-    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v3
-
-    instance-of v3, v3, Lcom/mdk/ff/ParticleView;
-
-    if-eqz v3, :cond_1
-
-    .line 68
-    nop
-
-    .line 69
-    const/4 v2, 0x1
-
-    goto :goto_1
-
-    .line 66
-    :cond_1
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v2, 0x0
-
-    .line 72
-    :goto_1
-    if-nez v2, :cond_3
-
-    .line 73
-    new-instance v2, Lcom/mdk/ff/ParticleView;
-
-    invoke-direct {v2, p0}, Lcom/mdk/ff/ParticleView;-><init>(Landroid/content/Context;)V
-
-    .line 74
-    new-instance v3, Landroid/widget/FrameLayout$LayoutParams;
-
-    const/4 v4, -0x1
-
-    invoke-direct {v3, v4, v4}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    .line 78
-    invoke-virtual {v2, v3}, Lcom/mdk/ff/ParticleView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 79
-    invoke-virtual {v0, v2, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
-
-    .line 84
-    :cond_3
-    const v0, 0x1020002
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p0
-
-    .line 85
-    if-eqz p0, :cond_4
-
-    .line 86
-    invoke-virtual {p0, v1}, Landroid/view/View;->setBackgroundColor(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    if-nez p1, :cond_0
 
     goto :goto_2
 
-    .line 88
+    .line 47
+    :cond_0
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_2
+
+    .line 48
+    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    instance-of v2, v2, Lcom/mdk/ff/ParticleView;
+
+    if-eqz v2, :cond_1
+
+    .line 49
+    return-void
+
+    .line 47
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .line 53
+    :cond_2
+    :try_start_0
+    new-instance v1, Lcom/mdk/ff/ParticleView;
+
+    invoke-direct {v1, p1}, Lcom/mdk/ff/ParticleView;-><init>(Landroid/content/Context;)V
+
+    .line 54
+    new-instance p1, Landroid/view/ViewGroup$LayoutParams;
+
+    const/4 v2, -0x1
+
+    invoke-direct {p1, v2, v2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+
+    .line 58
+    invoke-virtual {v1, p1}, Lcom/mdk/ff/ParticleView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 59
+    invoke-virtual {p0, v1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    .line 60
     :catch_0
     move-exception p0
 
-    :cond_4
-    :goto_2
+    :goto_1
     nop
 
-    .line 89
+    .line 61
     return-void
 
-    .line 53
-    :cond_5
-    :goto_3
+    .line 46
+    :cond_3
+    :goto_2
     return-void
 .end method
 
 .method public static dpToPx(Landroid/content/Context;I)I
     .locals 0
 
-    .line 48
+    .line 41
     if-nez p0, :cond_0
 
     mul-int/lit8 p1, p1, 0x2
 
     return p1
 
-    .line 49
+    .line 42
     :cond_0
     int-to-float p1, p1
 
@@ -261,34 +189,34 @@
 .method private static findAdbPairingPort()I
     .locals 7
 
-    .line 778
+    .line 762
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    .line 779
+    .line 763
     const/16 v2, 0x20
 
     invoke-static {v2}, Ljava/util/concurrent/Executors;->newFixedThreadPool(I)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v3
 
-    .line 781
+    .line 765
     nop
 
     :goto_0
     if-ge v1, v2, :cond_1
 
-    .line 782
+    .line 766
     mul-int/lit16 v4, v1, 0x17e
 
     const v5, 0x8000
 
     add-int/2addr v4, v5
 
-    .line 783
+    .line 767
     const/16 v5, 0x1f
 
     if-ne v1, v5, :cond_0
@@ -302,7 +230,7 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    .line 785
+    .line 769
     :goto_1
     new-instance v6, Lcom/mdk/ff/UIHelper$5;
 
@@ -310,16 +238,16 @@
 
     invoke-interface {v3, v6}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 781
+    .line 765
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 804
+    .line 788
     :cond_1
     invoke-interface {v3}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
-    .line 806
+    .line 790
     :try_start_0
     sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -331,14 +259,14 @@
 
     goto :goto_2
 
-    .line 807
+    .line 791
     :catch_0
     move-exception v1
 
     :goto_2
     nop
 
-    .line 809
+    .line 793
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
     move-result v0
@@ -349,23 +277,23 @@
 .method private static findBottomNavBar(Landroid/view/View;)Landroid/view/ViewGroup;
     .locals 5
 
-    .line 669
+    .line 654
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
     return-object v0
 
-    .line 670
+    .line 655
     :cond_0
     instance-of v1, p0, Landroid/view/ViewGroup;
 
     if-eqz v1, :cond_6
 
-    .line 671
+    .line 656
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 672
+    .line 657
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v1
@@ -376,16 +304,16 @@
 
     if-ne v1, v2, :cond_4
 
-    .line 673
+    .line 658
     nop
 
-    .line 674
+    .line 659
     const/4 v1, 0x0
 
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 675
+    .line 660
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
@@ -394,15 +322,15 @@
 
     if-nez v4, :cond_1
 
-    .line 676
+    .line 661
     nop
 
-    .line 677
+    .line 662
     const/4 v1, 0x0
 
     goto :goto_1
 
-    .line 674
+    .line 659
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
@@ -411,7 +339,7 @@
     :cond_2
     const/4 v1, 0x1
 
-    .line 680
+    .line 665
     :goto_1
     if-eqz v1, :cond_4
 
@@ -439,11 +367,11 @@
 
     if-eqz v1, :cond_4
 
-    .line 681
+    .line 666
     :cond_3
     return-object p0
 
-    .line 684
+    .line 669
     :cond_4
     nop
 
@@ -454,7 +382,7 @@
 
     if-ge v3, v1, :cond_6
 
-    .line 685
+    .line 670
     invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
@@ -463,18 +391,18 @@
 
     move-result-object v1
 
-    .line 686
+    .line 671
     if-eqz v1, :cond_5
 
     return-object v1
 
-    .line 684
+    .line 669
     :cond_5
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 689
+    .line 674
     :cond_6
     return-object v0
 .end method
@@ -482,14 +410,14 @@
 .method private static findEditText(Landroid/view/View;)Landroid/widget/EditText;
     .locals 3
 
-    .line 323
+    .line 300
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
     return-object v0
 
-    .line 324
+    .line 301
     :cond_0
     instance-of v1, p0, Landroid/widget/EditText;
 
@@ -499,16 +427,16 @@
 
     return-object p0
 
-    .line 325
+    .line 302
     :cond_1
     instance-of v1, p0, Landroid/view/ViewGroup;
 
     if-eqz v1, :cond_3
 
-    .line 326
+    .line 303
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 327
+    .line 304
     const/4 v1, 0x0
 
     :goto_0
@@ -518,7 +446,7 @@
 
     if-ge v1, v2, :cond_3
 
-    .line 328
+    .line 305
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
@@ -527,18 +455,18 @@
 
     move-result-object v2
 
-    .line 329
+    .line 306
     if-eqz v2, :cond_2
 
     return-object v2
 
-    .line 327
+    .line 304
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 332
+    .line 309
     :cond_3
     return-object v0
 .end method
@@ -546,7 +474,7 @@
 .method private static findViewWithText(Landroid/view/View;Ljava/lang/String;)Landroid/view/View;
     .locals 3
 
-    .line 336
+    .line 313
     const/4 v0, 0x0
 
     if-eqz p0, :cond_4
@@ -555,13 +483,13 @@
 
     goto :goto_1
 
-    .line 337
+    .line 314
     :cond_0
     instance-of v1, p0, Landroid/widget/TextView;
 
     if-eqz v1, :cond_1
 
-    .line 338
+    .line 315
     move-object v1, p0
 
     check-cast v1, Landroid/widget/TextView;
@@ -570,7 +498,7 @@
 
     move-result-object v1
 
-    .line 339
+    .line 316
     if-eqz v1, :cond_1
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -585,16 +513,16 @@
 
     return-object p0
 
-    .line 341
+    .line 318
     :cond_1
     instance-of v1, p0, Landroid/view/ViewGroup;
 
     if-eqz v1, :cond_3
 
-    .line 342
+    .line 319
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 343
+    .line 320
     const/4 v1, 0x0
 
     :goto_0
@@ -604,7 +532,7 @@
 
     if-ge v1, v2, :cond_3
 
-    .line 344
+    .line 321
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
@@ -613,22 +541,22 @@
 
     move-result-object v2
 
-    .line 345
+    .line 322
     if-eqz v2, :cond_2
 
     return-object v2
 
-    .line 343
+    .line 320
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 348
+    .line 325
     :cond_3
     return-object v0
 
-    .line 336
+    .line 313
     :cond_4
     :goto_1
     return-object v0
@@ -637,12 +565,12 @@
 .method public static formatBottomNav(Landroid/app/Activity;I)V
     .locals 11
 
-    .line 621
+    .line 602
     if-nez p0, :cond_0
 
     return-void
 
-    .line 623
+    .line 604
     :cond_0
     const v0, 0x1020002
 
@@ -655,23 +583,23 @@
 
     move-result-object v0
 
-    .line 624
+    .line 605
     if-nez v0, :cond_1
 
     return-void
 
-    .line 626
+    .line 607
     :cond_1
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 627
+    .line 608
     const v2, -0xf2f2f3
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 628
+    .line 609
     const/4 v2, 0x1
 
     invoke-static {p0, v2}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
@@ -682,7 +610,7 @@
 
     invoke-virtual {v1, v3, v4}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 629
+    .line 610
     const/16 v3, 0x1c
 
     invoke-static {p0, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
@@ -693,13 +621,13 @@
 
     invoke-virtual {v1, p0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 630
+    .line 611
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 632
+    .line 613
     nop
 
-    .line 633
+    .line 614
     const/4 p0, 0x0
 
     const/4 v1, 0x0
@@ -711,217 +639,230 @@
 
     move-result v4
 
-    if-ge v1, v4, :cond_b
+    if-ge v1, v4, :cond_c
 
-    .line 634
+    .line 615
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
-    .line 635
+    .line 616
     instance-of v5, v4, Landroid/view/ViewGroup;
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
-    .line 636
+    .line 617
     check-cast v4, Landroid/view/ViewGroup;
 
-    .line 637
+    .line 618
     const/4 v5, 0x0
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 639
-    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
+    .line 620
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
+    move-result-object v5
+
+    .line 621
+    instance-of v6, v5, Landroid/widget/LinearLayout$LayoutParams;
+
+    if-eqz v6, :cond_2
+
+    .line 622
+    check-cast v5, Landroid/widget/LinearLayout$LayoutParams;
+
+    .line 623
     const/high16 v6, 0x3f800000    # 1.0f
 
-    const/4 v7, -0x1
+    iput v6, v5, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    invoke-direct {v5, p0, v7, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+    .line 624
+    iput p0, v5, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
-    .line 640
-    const/16 v6, 0x11
-
-    iput v6, v5, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
-
-    .line 641
+    .line 625
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 643
-    if-ne v3, p1, :cond_2
+    .line 628
+    :cond_2
+    if-ne v3, p1, :cond_3
 
     const/4 v5, 0x1
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     const/4 v5, 0x0
 
-    .line 644
+    .line 629
     :goto_1
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
-    const v7, -0xe5e6
+    const v6, -0xe5e6
 
-    .line 646
-    :cond_3
-    const/4 v6, 0x0
+    goto :goto_2
 
+    :cond_4
+    const/4 v6, -0x1
+
+    .line 631
     :goto_2
+    const/4 v7, 0x0
+
+    :goto_3
     invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v8
 
-    if-ge v6, v8, :cond_9
+    if-ge v7, v8, :cond_a
 
-    .line 647
-    invoke-virtual {v4, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    .line 632
+    invoke-virtual {v4, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
-    .line 648
+    .line 633
     instance-of v9, v8, Landroid/widget/TextView;
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_8
 
-    .line 649
+    .line 634
     check-cast v8, Landroid/widget/TextView;
 
-    .line 650
+    .line 635
     invoke-virtual {v8, p0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 651
-    invoke-virtual {v8, v7}, Landroid/widget/TextView;->setTextColor(I)V
+    .line 636
+    invoke-virtual {v8, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 652
-    if-eqz v5, :cond_4
+    .line 637
+    if-eqz v5, :cond_5
 
     sget-object v9, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_4
+    :cond_5
     sget-object v9, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
 
-    :goto_3
+    :goto_4
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 653
+    .line 638
     const/high16 v9, 0x41400000    # 12.0f
 
     const/4 v10, 0x2
 
     invoke-virtual {v8, v10, v9}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 654
-    if-nez v3, :cond_5
+    .line 639
+    if-nez v3, :cond_6
 
     const-string v9, "In\u00edcio"
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 655
-    :cond_5
-    if-ne v3, v2, :cond_6
+    .line 640
+    :cond_6
+    if-ne v3, v2, :cond_7
 
     const-string v9, "Bypass SS"
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 656
-    :cond_6
-    if-ne v3, v10, :cond_8
+    .line 641
+    :cond_7
+    if-ne v3, v10, :cond_9
 
     const-string v9, "Configura\u00e7\u00f5es"
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 657
-    :cond_7
+    .line 642
+    :cond_8
     instance-of v9, v8, Landroid/widget/ImageView;
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_9
 
-    .line 658
+    .line 643
     check-cast v8, Landroid/widget/ImageView;
 
-    .line 659
-    invoke-virtual {v8, v7}, Landroid/widget/ImageView;->setColorFilter(I)V
+    .line 644
+    invoke-virtual {v8, v6}, Landroid/widget/ImageView;->setColorFilter(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_5
+    goto :goto_6
 
-    .line 657
-    :cond_8
-    :goto_4
+    .line 642
+    :cond_9
+    :goto_5
     nop
 
-    .line 646
-    :goto_5
-    add-int/lit8 v6, v6, 0x1
+    .line 631
+    :goto_6
+    add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
-    .line 662
-    :cond_9
+    .line 647
+    :cond_a
     add-int/lit8 v3, v3, 0x1
 
-    .line 633
-    :cond_a
+    .line 614
+    :cond_b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 665
+    .line 650
     :catch_0
     move-exception p0
 
-    :cond_b
+    :cond_c
     nop
 
-    .line 666
+    .line 651
     return-void
 .end method
 
 .method private static hideAllImageViews(Landroid/view/View;)V
     .locals 2
 
-    .line 282
+    .line 259
     if-nez p0, :cond_0
 
     return-void
 
-    .line 283
+    .line 260
     :cond_0
     instance-of v0, p0, Landroid/widget/ImageView;
 
     if-eqz v0, :cond_1
 
-    .line 284
+    .line 261
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_1
 
-    .line 285
+    .line 262
     :cond_1
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_2
 
-    .line 286
+    .line 263
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 287
+    .line 264
     const/4 v0, 0x0
 
     :goto_0
@@ -931,144 +872,46 @@
 
     if-ge v0, v1, :cond_2
 
-    .line 288
+    .line 265
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
     invoke-static {v1}, Lcom/mdk/ff/UIHelper;->hideAllImageViews(Landroid/view/View;)V
 
-    .line 287
+    .line 264
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 291
+    .line 268
     :cond_2
     :goto_1
-    return-void
-.end method
-
-.method private static makeContainersTransparent(Landroid/view/View;)V
-    .locals 2
-
-    .line 92
-    if-nez p0, :cond_0
-
-    return-void
-
-    .line 93
-    :cond_0
-    instance-of v0, p0, Landroid/widget/Button;
-
-    if-eqz v0, :cond_1
-
-    return-void
-
-    .line 94
-    :cond_1
-    invoke-virtual {p0}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "buy_key_btn"
-
-    invoke-virtual {p0}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "key_wrapper"
-
-    invoke-virtual {p0}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 95
-    :cond_2
-    return-void
-
-    .line 97
-    :cond_3
-    instance-of v0, p0, Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_4
-
-    .line 98
-    check-cast p0, Landroid/view/ViewGroup;
-
-    .line 99
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    .line 100
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setBackgroundColor(I)V
-
-    .line 101
-    nop
-
-    :goto_0
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_4
-
-    .line 102
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/mdk/ff/UIHelper;->makeContainersTransparent(Landroid/view/View;)V
-
-    .line 101
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 105
-    :cond_4
     return-void
 .end method
 
 .method public static onAdbServiceDiscovered(Landroid/content/Context;Ljava/lang/String;I)V
     .locals 0
 
-    .line 813
+    .line 797
     sput-object p1, Lcom/mdk/ff/UIHelper;->lastAdbHost:Ljava/lang/String;
 
-    .line 814
+    .line 798
     sput p2, Lcom/mdk/ff/UIHelper;->lastAdbPort:I
 
-    .line 815
+    .line 799
     return-void
 .end method
 
 .method public static onStartPairingService(Landroid/content/Context;)V
     .locals 2
 
-    .line 697
+    .line 682
     if-nez p0, :cond_0
 
     return-void
 
-    .line 700
+    .line 685
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -1083,15 +926,15 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 701
+    .line 686
     if-eqz v0, :cond_2
 
-    .line 702
+    .line 687
     sget-object v1, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
     if-nez v1, :cond_1
 
-    .line 703
+    .line 688
     const-string v1, "AdbPairingLock"
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->createMulticastLock(Ljava/lang/String;)Landroid/net/wifi/WifiManager$MulticastLock;
@@ -1100,14 +943,14 @@
 
     sput-object v0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
-    .line 704
+    .line 689
     sget-object v0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager$MulticastLock;->setReferenceCounted(Z)V
 
-    .line 706
+    .line 691
     :cond_1
     sget-object v0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
@@ -1117,7 +960,7 @@
 
     if-nez v0, :cond_2
 
-    .line 707
+    .line 692
     sget-object v0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager$MulticastLock;->acquire()V
@@ -1126,7 +969,7 @@
 
     goto :goto_0
 
-    .line 710
+    .line 695
     :catch_0
     move-exception v0
 
@@ -1134,10 +977,10 @@
     :goto_0
     nop
 
-    .line 713
+    .line 698
     invoke-static {}, Lcom/mdk/ff/UIHelper;->stopPairingScanner()V
 
-    .line 714
+    .line 699
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/mdk/ff/UIHelper$4;
@@ -1150,22 +993,22 @@
 
     sput-object v0, Lcom/mdk/ff/UIHelper;->pairingScannerThread:Ljava/lang/Thread;
 
-    .line 749
+    .line 734
     sget-object p0, Lcom/mdk/ff/UIHelper;->pairingScannerThread:Ljava/lang/Thread;
 
     invoke-virtual {p0}, Ljava/lang/Thread;->start()V
 
-    .line 750
+    .line 735
     return-void
 .end method
 
 .method public static onStopPairingService(Landroid/content/Context;)V
     .locals 0
 
-    .line 753
+    .line 738
     invoke-static {}, Lcom/mdk/ff/UIHelper;->stopPairingScanner()V
 
-    .line 755
+    .line 740
     :try_start_0
     sget-object p0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
@@ -1179,7 +1022,7 @@
 
     if-eqz p0, :cond_0
 
-    .line 756
+    .line 741
     sget-object p0, Lcom/mdk/ff/UIHelper;->multicastLock:Landroid/net/wifi/WifiManager$MulticastLock;
 
     invoke-virtual {p0}, Landroid/net/wifi/WifiManager$MulticastLock;->release()V
@@ -1188,7 +1031,7 @@
 
     goto :goto_0
 
-    .line 758
+    .line 743
     :catch_0
     move-exception p0
 
@@ -1196,23 +1039,23 @@
     :goto_0
     nop
 
-    .line 759
+    .line 744
     return-void
 .end method
 
 .method public static onTabSelected(Landroid/app/Activity;I)V
     .locals 1
 
-    .line 608
+    .line 589
     if-nez p0, :cond_0
 
     return-void
 
-    .line 609
+    .line 590
     :cond_0
     sput-object p0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
 
-    .line 611
+    .line 592
     :try_start_0
     new-instance v0, Lcom/mdk/ff/UIHelper$3;
 
@@ -1224,74 +1067,74 @@
 
     goto :goto_0
 
-    .line 617
+    .line 598
     :catch_0
     move-exception p0
 
     :goto_0
     nop
 
-    .line 618
+    .line 599
     return-void
 .end method
 
 .method public static setupBypassScreen(Landroid/view/View;Landroid/content/Context;)V
     .locals 1
 
-    .line 423
-    if-eqz p0, :cond_2
+    .line 404
+    if-eqz p0, :cond_3
 
     if-nez p1, :cond_0
 
     goto :goto_1
 
-    .line 424
+    .line 405
     :cond_0
     instance-of v0, p1, Landroid/app/Activity;
 
     if-eqz v0, :cond_1
 
-    .line 425
+    .line 406
     move-object v0, p1
 
     check-cast v0, Landroid/app/Activity;
 
-    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->attachFullScreenParticleView(Landroid/app/Activity;)V
+    sput-object v0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
 
-    .line 428
+    .line 409
     :cond_1
-    const/4 v0, 0x0
-
     :try_start_0
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    instance-of v0, p0, Landroid/view/ViewGroup;
 
-    .line 429
-    const/4 v0, 0x0
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundColor(I)V
+    .line 410
+    move-object v0, p0
 
-    .line 430
-    invoke-static {p0}, Lcom/mdk/ff/UIHelper;->makeContainersTransparent(Landroid/view/View;)V
+    check-cast v0, Landroid/view/ViewGroup;
 
-    .line 431
+    invoke-static {v0, p1}, Lcom/mdk/ff/UIHelper;->addParticleBackground(Landroid/view/ViewGroup;Landroid/content/Context;)V
+
+    .line 412
+    :cond_2
     invoke-static {p0, p1}, Lcom/mdk/ff/UIHelper;->traverseBypassViews(Landroid/view/View;Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 432
+    .line 413
     :catch_0
     move-exception p0
 
     :goto_0
     nop
 
-    .line 433
+    .line 414
     return-void
 
-    .line 423
-    :cond_2
+    .line 404
+    :cond_3
     :goto_1
     return-void
 .end method
@@ -1299,63 +1142,63 @@
 .method public static setupHomeScreen(Landroid/view/View;Landroid/content/Context;)V
     .locals 1
 
-    .line 352
-    if-eqz p0, :cond_2
+    .line 329
+    if-eqz p0, :cond_3
 
     if-nez p1, :cond_0
 
     goto :goto_1
 
-    .line 353
+    .line 330
     :cond_0
     instance-of v0, p1, Landroid/app/Activity;
 
     if-eqz v0, :cond_1
 
-    .line 354
+    .line 331
     move-object v0, p1
 
     check-cast v0, Landroid/app/Activity;
 
-    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->attachFullScreenParticleView(Landroid/app/Activity;)V
+    sput-object v0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
 
-    .line 357
+    .line 334
     :cond_1
-    const/4 v0, 0x0
-
     :try_start_0
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    instance-of v0, p0, Landroid/view/ViewGroup;
 
-    .line 358
-    const/4 v0, 0x0
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundColor(I)V
+    .line 335
+    move-object v0, p0
 
-    .line 359
-    invoke-static {p0}, Lcom/mdk/ff/UIHelper;->makeContainersTransparent(Landroid/view/View;)V
+    check-cast v0, Landroid/view/ViewGroup;
 
-    .line 361
+    invoke-static {v0, p1}, Lcom/mdk/ff/UIHelper;->addParticleBackground(Landroid/view/ViewGroup;Landroid/content/Context;)V
+
+    .line 337
+    :cond_2
     invoke-static {p0}, Lcom/mdk/ff/UIHelper;->updateTitleText(Landroid/view/View;)V
 
-    .line 362
+    .line 338
     invoke-static {p0, p1}, Lcom/mdk/ff/UIHelper;->traverseHomeViews(Landroid/view/View;Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 363
+    .line 339
     :catch_0
     move-exception p0
 
     :goto_0
     nop
 
-    .line 364
+    .line 340
     return-void
 
-    .line 352
-    :cond_2
+    .line 329
+    :cond_3
     :goto_1
     return-void
 .end method
@@ -1363,143 +1206,226 @@
 .method public static setupLoginScreen(Landroid/app/Activity;)V
     .locals 16
 
-    .line 108
-    move-object/from16 v0, p0
+    .line 64
+    move-object/from16 v1, p0
 
-    const-string v1, "buy_key_btn"
+    const-string v2, "buy_key_btn"
 
-    const-string v2, "key_wrapper"
+    const-string v3, "key_wrapper"
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
-    .line 109
+    .line 65
     :cond_0
-    sput-object v0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
+    sput-object v1, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
 
-    .line 111
+    .line 68
     :try_start_0
-    invoke-static/range {p0 .. p0}, Lcom/mdk/ff/UIHelper;->attachFullScreenParticleView(Landroid/app/Activity;)V
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
-    .line 113
-    const/16 v3, 0xc80
+    move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    .line 69
+    const/high16 v4, -0x1000000
 
-    move-result-object v3
-
-    .line 114
-    if-nez v3, :cond_1
-
-    return-void
-
-    .line 116
-    :cond_1
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    .line 117
     const/4 v5, 0x0
 
-    invoke-virtual {v3, v5}, Landroid/view/View;->setBackgroundColor(I)V
+    if-eqz v0, :cond_1
 
-    .line 120
-    const/16 v6, 0xc8e
+    .line 70
+    new-instance v6, Landroid/graphics/drawable/ColorDrawable;
 
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-direct {v6, v4}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    move-result-object v6
+    invoke-virtual {v0, v6}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 121
-    const/16 v7, 0x8
+    .line 71
+    invoke-virtual {v0, v5}, Landroid/view/Window;->setStatusBarColor(I)V
+
+    .line 72
+    invoke-virtual {v0, v5}, Landroid/view/Window;->setNavigationBarColor(I)V
+
+    .line 76
+    :cond_1
+    const v0, 0x1020002
+
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 77
+    instance-of v6, v0, Landroid/view/ViewGroup;
 
     if-eqz v6, :cond_2
 
-    .line 122
-    invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
+    .line 78
+    check-cast v0, Landroid/view/ViewGroup;
 
-    .line 124
+    .line 79
+    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->setBackgroundColor(I)V
+
+    .line 80
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v6
+
+    if-lez v6, :cond_2
+
+    .line 81
+    invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setBackgroundColor(I)V
+
+    .line 86
     :cond_2
-    invoke-static {v3}, Lcom/mdk/ff/UIHelper;->hideAllImageViews(Landroid/view/View;)V
+    const/16 v0, 0xc1c
 
-    .line 127
-    const/16 v6, 0xc1c
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    move-result-object v0
+
+    .line 87
+    const/4 v4, 0x0
+
+    if-eqz v0, :cond_3
+
+    .line 88
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+
+    .line 89
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setAlpha(F)V
+
+    .line 90
+    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    const/16 v7, 0x1f
+
+    if-lt v6, v7, :cond_3
+
+    .line 92
+    :try_start_1
+    invoke-virtual {v0, v4}, Landroid/view/View;->setRenderEffect(Landroid/graphics/RenderEffect;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    .line 93
+    :goto_0
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    .line 97
+    :cond_3
+    :goto_1
+    const/16 v0, 0xc80
+
+    :try_start_2
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 98
+    if-nez v0, :cond_4
+
+    return-void
+
+    .line 101
+    :cond_4
+    instance-of v6, v0, Landroid/view/ViewGroup;
+
+    if-eqz v6, :cond_5
+
+    .line 102
+    move-object v6, v0
+
+    check-cast v6, Landroid/view/ViewGroup;
+
+    invoke-static {v6, v1}, Lcom/mdk/ff/UIHelper;->addParticleBackground(Landroid/view/ViewGroup;Landroid/content/Context;)V
+
+    .line 106
+    :cond_5
+    const/16 v6, 0xc8e
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    .line 128
-    if-eqz v6, :cond_3
+    .line 107
+    if-eqz v6, :cond_6
 
-    .line 129
-    invoke-virtual {v6, v4}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    .line 108
+    const/16 v7, 0x8
 
-    .line 130
-    invoke-virtual {v6, v5}, Landroid/view/View;->setBackgroundColor(I)V
-
-    .line 131
     invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
 
-    .line 135
-    :cond_3
+    .line 110
+    :cond_6
+    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->hideAllImageViews(Landroid/view/View;)V
+
+    .line 113
     const/16 v6, 0xc8b
 
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    .line 136
-    if-eqz v6, :cond_4
+    .line 114
+    if-eqz v6, :cond_7
 
-    .line 137
+    .line 115
     invoke-virtual {v6, v4}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 138
+    .line 116
     invoke-virtual {v6, v5}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 140
-    :cond_4
-    invoke-static {v3}, Lcom/mdk/ff/UIHelper;->makeContainersTransparent(Landroid/view/View;)V
+    .line 120
+    :cond_7
+    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->updateTitleText(Landroid/view/View;)V
 
-    .line 143
-    invoke-static {v3}, Lcom/mdk/ff/UIHelper;->updateTitleText(Landroid/view/View;)V
-
-    .line 145
-    invoke-static {v3}, Lcom/mdk/ff/UIHelper;->findEditText(Landroid/view/View;)Landroid/widget/EditText;
+    .line 122
+    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->findEditText(Landroid/view/View;)Landroid/widget/EditText;
 
     move-result-object v7
 
-    .line 146
+    .line 123
     instance-of v8, v6, Landroid/view/ViewGroup;
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_c
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_c
 
-    .line 147
+    .line 124
     check-cast v6, Landroid/view/ViewGroup;
 
-    .line 149
+    .line 126
     const/4 v8, -0x1
 
     invoke-virtual {v7, v8}, Landroid/widget/EditText;->setTextColor(I)V
 
-    .line 150
+    .line 127
     const v9, -0x777778
 
     invoke-virtual {v7, v9}, Landroid/widget/EditText;->setHintTextColor(I)V
 
-    .line 151
+    .line 128
     invoke-virtual {v7, v4}, Landroid/widget/EditText;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 152
+    .line 129
     invoke-virtual {v7, v5}, Landroid/widget/EditText;->setBackgroundColor(I)V
 
-    .line 155
-    invoke-virtual {v6, v2}, Landroid/view/ViewGroup;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    .line 132
+    invoke-virtual {v6, v3}, Landroid/view/ViewGroup;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
 
     move-result-object v4
 
@@ -1509,141 +1435,141 @@
 
     const/16 v11, 0x2c
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_8
 
-    .line 156
+    .line 133
     invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
 
     move-result v4
 
-    .line 157
-    if-ltz v4, :cond_5
+    .line 134
+    if-ltz v4, :cond_8
 
-    .line 158
+    .line 135
     invoke-virtual {v7}, Landroid/widget/EditText;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v12
 
-    .line 159
+    .line 136
     invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 161
+    .line 138
     new-instance v13, Landroid/widget/FrameLayout;
 
-    invoke-direct {v13, v0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v13, v1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 162
-    invoke-virtual {v13, v2}, Landroid/widget/FrameLayout;->setTag(Ljava/lang/Object;)V
+    .line 139
+    invoke-virtual {v13, v3}, Landroid/widget/FrameLayout;->setTag(Ljava/lang/Object;)V
 
-    .line 163
+    .line 140
     invoke-virtual {v13, v12}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 165
-    new-instance v2, Landroid/graphics/drawable/GradientDrawable;
+    .line 142
+    new-instance v3, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {v2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 166
-    invoke-virtual {v2, v5}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    .line 143
+    invoke-virtual {v3, v5}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 167
+    .line 144
     const/4 v12, 0x1
 
-    invoke-static {v0, v12}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    invoke-static {v1, v12}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v12
 
     const v14, -0xd5d6
 
-    invoke-virtual {v2, v12, v14}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+    invoke-virtual {v3, v12, v14}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 168
+    .line 145
     const/16 v12, 0x10
 
-    invoke-static {v0, v12}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    invoke-static {v1, v12}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v12
 
     int-to-float v12, v12
 
-    invoke-virtual {v2, v12}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+    invoke-virtual {v3, v12}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 169
-    invoke-virtual {v13, v2}, Landroid/widget/FrameLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    .line 146
+    invoke-virtual {v13, v3}, Landroid/widget/FrameLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 171
-    new-instance v2, Landroid/widget/FrameLayout$LayoutParams;
+    .line 148
+    new-instance v3, Landroid/widget/FrameLayout$LayoutParams;
 
     const/4 v12, -0x2
 
-    invoke-direct {v2, v8, v12}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v3, v8, v12}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    .line 175
+    .line 152
     nop
 
-    .line 176
+    .line 153
     const/16 v12, 0xe
 
-    invoke-static {v0, v12}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    invoke-static {v1, v12}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v12
 
-    .line 177
-    invoke-static {v0, v10}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 154
+    invoke-static {v1, v10}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v14
 
-    .line 178
+    .line 155
     const/16 v15, 0x30
 
-    invoke-static {v0, v15}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    invoke-static {v1, v15}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v15
 
-    .line 179
-    invoke-static {v0, v10}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 156
+    invoke-static {v1, v10}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v5
 
-    .line 175
+    .line 152
     invoke-virtual {v7, v12, v14, v15, v5}, Landroid/widget/EditText;->setPadding(IIII)V
 
-    .line 181
-    invoke-virtual {v7, v2}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    .line 158
+    invoke-virtual {v7, v3}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 182
+    .line 159
     invoke-virtual {v13, v7}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
-    .line 184
-    new-instance v2, Landroid/widget/TextView;
+    .line 161
+    new-instance v3, Landroid/widget/TextView;
 
-    invoke-direct {v2, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 185
+    .line 162
     const-string v5, "\ud83d\udc41"
 
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 186
+    .line 163
     const/high16 v5, 0x41900000    # 18.0f
 
-    invoke-virtual {v2, v9, v5}, Landroid/widget/TextView;->setTextSize(IF)V
+    invoke-virtual {v3, v9, v5}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 187
+    .line 164
     const v5, -0xe5e6
 
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 188
+    .line 165
     const/16 v5, 0x11
 
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 189
+    .line 166
     new-instance v5, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 190
-    invoke-static {v0, v11}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 167
+    invoke-static {v1, v11}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v12
 
@@ -1651,258 +1577,258 @@
 
     invoke-direct {v5, v12, v8, v14}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    .line 194
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    .line 171
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 196
+    .line 173
     new-instance v5, Lcom/mdk/ff/UIHelper$1;
 
-    invoke-direct {v5, v7, v2}, Lcom/mdk/ff/UIHelper$1;-><init>(Landroid/widget/EditText;Landroid/widget/TextView;)V
+    invoke-direct {v5, v7, v3}, Lcom/mdk/ff/UIHelper$1;-><init>(Landroid/widget/EditText;Landroid/widget/TextView;)V
 
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 212
-    invoke-virtual {v13, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+    .line 189
+    invoke-virtual {v13, v3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
-    .line 213
+    .line 190
     invoke-virtual {v6, v13, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    .line 218
-    :cond_5
-    const/16 v2, 0xc82
+    .line 195
+    :cond_8
+    const/16 v3, 0xc82
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 219
-    if-nez v2, :cond_6
+    .line 196
+    if-nez v0, :cond_9
 
-    .line 220
-    const-string v2, "ENTRAR"
+    .line 197
+    const-string v0, "ENTRAR"
 
-    invoke-static {v6, v2}, Lcom/mdk/ff/UIHelper;->findViewWithText(Landroid/view/View;Ljava/lang/String;)Landroid/view/View;
+    invoke-static {v6, v0}, Lcom/mdk/ff/UIHelper;->findViewWithText(Landroid/view/View;Ljava/lang/String;)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 223
-    :cond_6
+    .line 200
+    :cond_9
     const/16 v3, 0x16
 
     const v4, -0x1af6ec
 
-    if-eqz v2, :cond_7
+    if-eqz v0, :cond_a
 
-    invoke-virtual {v6, v1}, Landroid/view/ViewGroup;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    invoke-virtual {v6, v2}, Landroid/view/ViewGroup;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
 
     move-result-object v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_a
 
-    .line 224
-    invoke-virtual {v6, v2}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+    .line 201
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
 
     move-result v5
 
-    .line 225
-    if-ltz v5, :cond_7
+    .line 202
+    if-ltz v5, :cond_a
 
-    .line 226
+    .line 203
     new-instance v7, Landroid/widget/Button;
 
-    invoke-direct {v7, v0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
+    invoke-direct {v7, v1}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
-    .line 227
-    invoke-virtual {v7, v1}, Landroid/widget/Button;->setTag(Ljava/lang/Object;)V
+    .line 204
+    invoke-virtual {v7, v2}, Landroid/widget/Button;->setTag(Ljava/lang/Object;)V
 
-    .line 228
-    const-string v1, "ADQUIRIR KEY"
+    .line 205
+    const-string v2, "ADQUIRIR KEY"
 
-    invoke-virtual {v7, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v7, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 229
+    .line 206
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setTextColor(I)V
 
-    .line 230
-    const/high16 v1, 0x41700000    # 15.0f
+    .line 207
+    const/high16 v2, 0x41700000    # 15.0f
 
-    invoke-virtual {v7, v9, v1}, Landroid/widget/Button;->setTextSize(IF)V
+    invoke-virtual {v7, v9, v2}, Landroid/widget/Button;->setTextSize(IF)V
 
-    .line 231
-    sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
+    .line 208
+    sget-object v2, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
-    invoke-virtual {v7, v1}, Landroid/widget/Button;->setTypeface(Landroid/graphics/Typeface;)V
+    invoke-virtual {v7, v2}, Landroid/widget/Button;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 233
-    new-instance v1, Landroid/graphics/drawable/GradientDrawable;
+    .line 210
+    new-instance v2, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 234
-    invoke-virtual {v1, v4}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    .line 211
+    invoke-virtual {v2, v4}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 235
-    invoke-static {v0, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 212
+    invoke-static {v1, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v9
 
     int-to-float v9, v9
 
-    invoke-virtual {v1, v9}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+    invoke-virtual {v2, v9}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 236
-    invoke-virtual {v7, v1}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    .line 213
+    invoke-virtual {v7, v2}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 238
-    new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
+    .line 215
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 240
-    invoke-static {v0, v11}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 217
+    invoke-static {v1, v11}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v9
 
-    invoke-direct {v1, v8, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v2, v8, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 242
+    .line 219
     const/16 v9, 0xc
 
-    invoke-static {v0, v9}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    invoke-static {v1, v9}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v9
 
-    invoke-static {v0, v10}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    invoke-static {v1, v10}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v10
 
     const/4 v12, 0x0
 
-    invoke-virtual {v1, v12, v9, v12, v10}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v2, v12, v9, v12, v10}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 243
-    invoke-virtual {v7, v1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    .line 220
+    invoke-virtual {v7, v2}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 245
-    new-instance v1, Lcom/mdk/ff/UIHelper$2;
+    .line 222
+    new-instance v2, Lcom/mdk/ff/UIHelper$2;
 
-    invoke-direct {v1, v0}, Lcom/mdk/ff/UIHelper$2;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v2, v1}, Lcom/mdk/ff/UIHelper$2;-><init>(Landroid/app/Activity;)V
 
-    invoke-virtual {v7, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 255
+    .line 232
     invoke-virtual {v6, v7, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    .line 260
-    :cond_7
-    if-eqz v2, :cond_9
+    .line 237
+    :cond_a
+    if-eqz v0, :cond_c
 
-    .line 261
-    new-instance v1, Landroid/graphics/drawable/GradientDrawable;
+    .line 238
+    new-instance v2, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 262
+    .line 239
     const/high16 v5, -0x670000
 
     filled-new-array {v4, v5}, [I
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
+    invoke-virtual {v2, v4}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    .line 263
+    .line 240
     sget-object v4, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    invoke-virtual {v1, v4}, Landroid/graphics/drawable/GradientDrawable;->setOrientation(Landroid/graphics/drawable/GradientDrawable$Orientation;)V
+    invoke-virtual {v2, v4}, Landroid/graphics/drawable/GradientDrawable;->setOrientation(Landroid/graphics/drawable/GradientDrawable$Orientation;)V
 
-    .line 264
-    invoke-static {v0, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 241
+    invoke-static {v1, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v3
 
     int-to-float v3, v3
 
-    invoke-virtual {v1, v3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+    invoke-virtual {v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 265
-    invoke-virtual {v2, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    .line 242
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 266
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    .line 243
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 267
-    if-eqz v1, :cond_8
+    .line 244
+    if-eqz v2, :cond_b
 
-    .line 268
-    invoke-static {v0, v11}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+    .line 245
+    invoke-static {v1, v11}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v1, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 269
-    invoke-virtual {v2, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    .line 246
+    invoke-virtual {v0, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 271
-    :cond_8
-    instance-of v0, v2, Landroid/widget/TextView;
+    .line 248
+    :cond_b
+    instance-of v1, v0, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_9
+    if-eqz v1, :cond_c
 
-    .line 272
-    move-object v0, v2
+    .line 249
+    move-object v1, v0
 
+    check-cast v1, Landroid/widget/TextView;
+
+    invoke-virtual {v1, v8}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 250
     check-cast v0, Landroid/widget/TextView;
 
-    invoke-virtual {v0, v8}, Landroid/widget/TextView;->setTextColor(I)V
+    sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
-    .line 273
-    check-cast v2, Landroid/widget/TextView;
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    sget-object v0, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
+    goto :goto_2
 
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 278
-    :catch_0
+    .line 255
+    :catch_1
     move-exception v0
 
-    :cond_9
-    :goto_0
+    :cond_c
+    :goto_2
     nop
 
-    .line 279
+    .line 256
     return-void
 .end method
 
 .method public static setupPermissionsSheet(Landroid/view/View;Landroid/content/Context;)V
     .locals 5
 
-    .line 554
+    .line 535
     if-eqz p0, :cond_1
 
     if-nez p1, :cond_0
 
     goto :goto_1
 
-    .line 556
+    .line 537
     :cond_0
     :try_start_0
     new-instance v0, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 557
+    .line 538
     const v1, -0xf2f2f3
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 558
+    .line 539
     const/4 v1, 0x1
 
     invoke-static {p1, v1}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
@@ -1913,7 +1839,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 559
+    .line 540
     const/16 v2, 0x18
 
     invoke-static {p1, v2}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
@@ -1922,7 +1848,7 @@
 
     int-to-float v2, v2
 
-    .line 560
+    .line 541
     const/16 v3, 0x8
 
     new-array v3, v3, [F
@@ -1961,27 +1887,27 @@
 
     invoke-virtual {v0, v3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadii([F)V
 
-    .line 561
+    .line 542
     invoke-virtual {p0, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 563
+    .line 544
     invoke-static {p0, p1}, Lcom/mdk/ff/UIHelper;->traversePermissionsViews(Landroid/view/View;Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 564
+    .line 545
     :catch_0
     move-exception p0
 
     :goto_0
     nop
 
-    .line 565
+    .line 546
     return-void
 
-    .line 554
+    .line 535
     :cond_1
     :goto_1
     return-void
@@ -1990,60 +1916,60 @@
 .method public static setupSettingsScreen(Landroid/view/View;Landroid/content/Context;)V
     .locals 1
 
-    .line 476
-    if-eqz p0, :cond_2
+    .line 457
+    if-eqz p0, :cond_3
 
     if-nez p1, :cond_0
 
     goto :goto_1
 
-    .line 477
+    .line 458
     :cond_0
     instance-of v0, p1, Landroid/app/Activity;
 
     if-eqz v0, :cond_1
 
-    .line 478
+    .line 459
     move-object v0, p1
 
     check-cast v0, Landroid/app/Activity;
 
-    invoke-static {v0}, Lcom/mdk/ff/UIHelper;->attachFullScreenParticleView(Landroid/app/Activity;)V
+    sput-object v0, Lcom/mdk/ff/UIHelper;->currentActivity:Landroid/app/Activity;
 
-    .line 481
+    .line 462
     :cond_1
-    const/4 v0, 0x0
-
     :try_start_0
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    instance-of v0, p0, Landroid/view/ViewGroup;
 
-    .line 482
-    const/4 v0, 0x0
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundColor(I)V
+    .line 463
+    move-object v0, p0
 
-    .line 483
-    invoke-static {p0}, Lcom/mdk/ff/UIHelper;->makeContainersTransparent(Landroid/view/View;)V
+    check-cast v0, Landroid/view/ViewGroup;
 
-    .line 484
+    invoke-static {v0, p1}, Lcom/mdk/ff/UIHelper;->addParticleBackground(Landroid/view/ViewGroup;Landroid/content/Context;)V
+
+    .line 465
+    :cond_2
     invoke-static {p0, p1}, Lcom/mdk/ff/UIHelper;->traverseSettingsViews(Landroid/view/View;Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 485
+    .line 466
     :catch_0
     move-exception p0
 
     :goto_0
     nop
 
-    .line 486
+    .line 467
     return-void
 
-    .line 476
-    :cond_2
+    .line 457
+    :cond_3
     :goto_1
     return-void
 .end method
@@ -2051,24 +1977,24 @@
 .method private static stopPairingScanner()V
     .locals 2
 
-    .line 762
+    .line 747
     sget-object v0, Lcom/mdk/ff/UIHelper;->pairingScannerThread:Ljava/lang/Thread;
 
-    .line 763
+    .line 748
     const/4 v1, 0x0
 
     sput-object v1, Lcom/mdk/ff/UIHelper;->pairingScannerThread:Ljava/lang/Thread;
 
-    .line 764
+    .line 749
     if-eqz v0, :cond_0
 
-    .line 766
+    .line 751
     :try_start_0
     invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 767
+    .line 752
     :goto_0
     goto :goto_1
 
@@ -2077,7 +2003,7 @@
 
     goto :goto_0
 
-    .line 769
+    .line 754
     :cond_0
     :goto_1
     return-void
@@ -2086,31 +2012,31 @@
 .method private static traverseBypassViews(Landroid/view/View;Landroid/content/Context;)V
     .locals 5
 
-    .line 436
+    .line 417
     if-nez p0, :cond_0
 
     return-void
 
-    .line 437
+    .line 418
     :cond_0
     instance-of v0, p0, Landroid/widget/TextView;
 
     if-eqz v0, :cond_8
 
-    .line 438
+    .line 419
     move-object v0, p0
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 439
+    .line 420
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 440
+    .line 421
     if-eqz v1, :cond_8
 
-    .line 441
+    .line 422
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2119,7 +2045,7 @@
 
     move-result-object v1
 
-    .line 442
+    .line 423
     const-string v2, "BYPASS SS"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -2138,7 +2064,7 @@
 
     goto/16 :goto_1
 
-    .line 445
+    .line 426
     :cond_1
     const-string v2, "O QUE ISSO FAZ"
 
@@ -2150,17 +2076,17 @@
 
     if-eqz v2, :cond_2
 
-    .line 446
+    .line 427
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 447
+    .line 428
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto :goto_2
 
-    .line 448
+    .line 429
     :cond_2
     const-string v2, "Tira a proxy do jogo"
 
@@ -2180,7 +2106,7 @@
 
     goto :goto_0
 
-    .line 451
+    .line 432
     :cond_3
     const-string v2, "Isso n\u00e3o tem volta"
 
@@ -2190,17 +2116,17 @@
 
     if-eqz v2, :cond_4
 
-    .line 452
+    .line 433
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 453
+    .line 434
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto :goto_2
 
-    .line 454
+    .line 435
     :cond_4
     const-string v2, "ATIVAR BYPASS SS"
 
@@ -2210,12 +2136,12 @@
 
     if-eqz v1, :cond_5
 
-    .line 455
+    .line 436
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 456
+    .line 437
     const v2, -0x1af6ec
 
     const/high16 v3, -0x670000
@@ -2226,12 +2152,12 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    .line 457
+    .line 438
     sget-object v2, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setOrientation(Landroid/graphics/drawable/GradientDrawable$Orientation;)V
 
-    .line 458
+    .line 439
     const/16 v2, 0x16
 
     invoke-static {p1, v2}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
@@ -2242,59 +2168,59 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 459
+    .line 440
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 460
+    .line 441
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 461
+    .line 442
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 462
+    .line 443
     goto :goto_2
 
-    .line 463
+    .line 444
     :cond_5
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_2
 
-    .line 449
+    .line 430
     :cond_6
     :goto_0
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 450
+    .line 431
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto :goto_2
 
-    .line 443
+    .line 424
     :cond_7
     :goto_1
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 444
+    .line 425
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 467
+    .line 448
     :cond_8
     :goto_2
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_9
 
-    .line 468
+    .line 449
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 469
+    .line 450
     const/4 v0, 0x0
 
     :goto_3
@@ -2304,32 +2230,32 @@
 
     if-ge v0, v1, :cond_9
 
-    .line 470
+    .line 451
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
     invoke-static {v1, p1}, Lcom/mdk/ff/UIHelper;->traverseBypassViews(Landroid/view/View;Landroid/content/Context;)V
 
-    .line 469
+    .line 450
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 473
+    .line 454
     :cond_9
     return-void
 .end method
 
 .method private static traverseHomeViews(Landroid/view/View;Landroid/content/Context;)V
-    .locals 8
+    .locals 7
 
-    .line 367
+    .line 343
     if-nez p0, :cond_0
 
     return-void
 
-    .line 368
+    .line 344
     :cond_0
     instance-of v0, p0, Landroid/widget/TextView;
 
@@ -2337,20 +2263,20 @@
 
     if-eqz v0, :cond_7
 
-    .line 369
+    .line 345
     move-object v0, p0
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 370
+    .line 346
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 371
+    .line 347
     if-eqz v2, :cond_8
 
-    .line 372
+    .line 348
     invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -2359,7 +2285,7 @@
 
     move-result-object v2
 
-    .line 373
+    .line 349
     invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v3
@@ -2388,27 +2314,27 @@
 
     if-nez v3, :cond_1
 
-    .line 374
+    .line 350
     const-string v2, "AQUILES TEAM"
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 375
+    .line 351
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 376
+    .line 352
     sget-object v2, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 377
+    .line 353
     const/high16 v2, 0x41c00000    # 24.0f
 
     invoke-virtual {v0, v4, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
     goto/16 :goto_1
 
-    .line 378
+    .line 354
     :cond_1
     const-string v3, "Menu"
 
@@ -2418,14 +2344,14 @@
 
     if-eqz v3, :cond_2
 
-    .line 379
+    .line 355
     const/16 v2, 0x8
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto/16 :goto_1
 
-    .line 380
+    .line 356
     :cond_2
     const-string v3, "Toque em INJETAR"
 
@@ -2435,14 +2361,14 @@
 
     if-eqz v3, :cond_3
 
-    .line 381
+    .line 357
     const v2, -0x222223
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_1
 
-    .line 382
+    .line 358
     :cond_3
     const-string v3, "INJETAR"
 
@@ -2458,82 +2384,34 @@
 
     if-eqz v2, :cond_8
 
-    .line 384
+    .line 359
     :cond_4
-    invoke-virtual {v0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    move-result-object v2
-
-    .line 385
-    if-eqz v2, :cond_6
-
-    .line 386
-    const/16 v3, 0xd2
-
-    invoke-static {p1, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
-
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    .line 387
-    const/16 v3, 0x2a
-
-    invoke-static {p1, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
-
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    .line 388
-    instance-of v3, v2, Landroid/view/ViewGroup$MarginLayoutParams;
-
-    if-eqz v3, :cond_5
-
-    .line 389
-    move-object v3, v2
-
-    check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
-
-    .line 390
-    const/16 v6, 0x10
-
-    invoke-static {p1, v6}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
-
-    move-result v6
-
-    const/16 v7, 0xe
-
-    invoke-static {p1, v7}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
-
-    move-result v7
-
-    invoke-virtual {v3, v1, v6, v1, v7}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
-
-    .line 392
-    :cond_5
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 394
-    :cond_6
+    .line 360
     const/16 v2, 0x11
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 395
+    .line 361
     const/high16 v2, 0x41700000    # 15.0f
 
     invoke-virtual {v0, v4, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 396
-    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/widget/TextView;->setPadding(IIII)V
+    .line 362
+    sget-object v2, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
-    .line 398
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+
+    .line 363
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 365
     new-instance v2, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v2}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 399
+    .line 366
     const v3, -0x1af6ec
 
     const/high16 v4, -0x670000
@@ -2544,13 +2422,13 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    .line 400
+    .line 367
     sget-object v3, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setOrientation(Landroid/graphics/drawable/GradientDrawable$Orientation;)V
 
-    .line 401
-    const/16 v3, 0x15
+    .line 368
+    const/16 v3, 0x16
 
     invoke-static {p1, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
@@ -2560,37 +2438,93 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 402
+    .line 369
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 403
-    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setTextColor(I)V
+    .line 372
+    invoke-virtual {v0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    .line 404
-    sget-object v2, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
+    move-result-object v2
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+    .line 373
+    if-eqz v2, :cond_6
+
+    .line 374
+    const/16 v3, 0x2c
+
+    invoke-static {p1, v3}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+
+    move-result v3
+
+    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    .line 375
+    instance-of v3, v2, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    if-eqz v3, :cond_5
+
+    .line 376
+    move-object v3, v2
+
+    check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    .line 377
+    const/16 v4, 0x28
+
+    invoke-static {p1, v4}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+
+    move-result v4
+
+    .line 378
+    iput v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 379
+    iput v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    .line 380
+    const/16 v4, 0x10
+
+    invoke-static {p1, v4}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+
+    move-result v5
+
+    iput v5, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    .line 381
+    invoke-static {p1, v4}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
+
+    move-result v4
+
+    iput v4, v3, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    .line 383
+    :cond_5
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 385
+    :cond_6
+    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/widget/TextView;->setPadding(IIII)V
 
     goto :goto_1
 
-    .line 407
+    .line 388
     :cond_7
     instance-of v0, p0, Landroid/widget/ImageView;
 
     if-eqz v0, :cond_8
 
-    .line 409
+    .line 390
     :try_start_0
     move-object v0, p0
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 410
+    .line 391
     const v2, 0x7f0700a2
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 411
+    .line 392
     sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
@@ -2599,28 +2533,28 @@
 
     goto :goto_0
 
-    .line 412
+    .line 393
     :catch_0
     move-exception v0
 
     :goto_0
     goto :goto_2
 
-    .line 407
+    .line 388
     :cond_8
     :goto_1
     nop
 
-    .line 414
+    .line 395
     :goto_2
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_9
 
-    .line 415
+    .line 396
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 416
+    .line 397
     nop
 
     :goto_3
@@ -2630,19 +2564,19 @@
 
     if-ge v1, v0, :cond_9
 
-    .line 417
+    .line 398
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
     invoke-static {v0, p1}, Lcom/mdk/ff/UIHelper;->traverseHomeViews(Landroid/view/View;Landroid/content/Context;)V
 
-    .line 416
+    .line 397
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
-    .line 420
+    .line 401
     :cond_9
     return-void
 .end method
@@ -2650,31 +2584,31 @@
 .method private static traversePermissionsViews(Landroid/view/View;Landroid/content/Context;)V
     .locals 5
 
-    .line 568
+    .line 549
     if-nez p0, :cond_0
 
     return-void
 
-    .line 569
+    .line 550
     :cond_0
     instance-of v0, p0, Landroid/widget/TextView;
 
     if-eqz v0, :cond_8
 
-    .line 570
+    .line 551
     move-object v0, p0
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 571
+    .line 552
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 572
+    .line 553
     if-eqz v1, :cond_8
 
-    .line 573
+    .line 554
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2683,7 +2617,7 @@
 
     move-result-object v1
 
-    .line 574
+    .line 555
     const-string v2, "PERMISS"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -2694,22 +2628,22 @@
 
     if-eqz v2, :cond_1
 
-    .line 575
+    .line 556
     const-string v1, "PERMISS\u00d5ES DO SISTEMA"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 576
+    .line 557
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 577
+    .line 558
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto/16 :goto_2
 
-    .line 578
+    .line 559
     :cond_1
     const-string v2, "pareamento aparecem aqui"
 
@@ -2721,17 +2655,17 @@
 
     if-eqz v2, :cond_2
 
-    .line 579
+    .line 560
     const-string v1, "Exibi\u00e7\u00e3o de notifica\u00e7\u00f5es cont\u00ednuas para c\u00f3digo de pareamento e status"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 580
+    .line 561
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_2
 
-    .line 581
+    .line 562
     :cond_2
     const-string v2, "bateria"
 
@@ -2741,17 +2675,17 @@
 
     if-eqz v2, :cond_3
 
-    .line 582
+    .line 563
     const-string v1, "Execu\u00e7\u00e3o cont\u00ednua em segundo plano sem restri\u00e7\u00e3o de economia de energia"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 583
+    .line 564
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_2
 
-    .line 584
+    .line 565
     :cond_3
     const-string v2, "Sobrepor"
 
@@ -2771,7 +2705,7 @@
 
     goto :goto_1
 
-    .line 587
+    .line 568
     :cond_4
     const-string v2, "CONCEDER"
 
@@ -2799,25 +2733,25 @@
 
     goto :goto_0
 
-    .line 595
+    .line 576
     :cond_5
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_2
 
-    .line 588
+    .line 569
     :cond_6
     :goto_0
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 589
+    .line 570
     const v2, -0x1af6ec
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 590
+    .line 571
     const/16 v2, 0x14
 
     invoke-static {p1, v2}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
@@ -2828,41 +2762,41 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 591
+    .line 572
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 592
+    .line 573
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 593
+    .line 574
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 594
+    .line 575
     goto :goto_2
 
-    .line 585
+    .line 566
     :cond_7
     :goto_1
     const-string v1, "Sobreposi\u00e7\u00e3o sobre outros aplicativos para exibi\u00e7\u00e3o do menu"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 586
+    .line 567
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 599
+    .line 580
     :cond_8
     :goto_2
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_9
 
-    .line 600
+    .line 581
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 601
+    .line 582
     const/4 v0, 0x0
 
     :goto_3
@@ -2872,19 +2806,19 @@
 
     if-ge v0, v1, :cond_9
 
-    .line 602
+    .line 583
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
     invoke-static {v1, p1}, Lcom/mdk/ff/UIHelper;->traversePermissionsViews(Landroid/view/View;Landroid/content/Context;)V
 
-    .line 601
+    .line 582
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 605
+    .line 586
     :cond_9
     return-void
 .end method
@@ -2892,31 +2826,31 @@
 .method private static traverseSettingsViews(Landroid/view/View;Landroid/content/Context;)V
     .locals 8
 
-    .line 489
+    .line 470
     if-nez p0, :cond_0
 
     return-void
 
-    .line 490
+    .line 471
     :cond_0
     instance-of v0, p0, Landroid/widget/TextView;
 
     if-eqz v0, :cond_f
 
-    .line 491
+    .line 472
     move-object v0, p0
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 492
+    .line 473
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 493
+    .line 474
     if-eqz v1, :cond_f
 
-    .line 494
+    .line 475
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2925,7 +2859,7 @@
 
     move-result-object v1
 
-    .line 495
+    .line 476
     const-string v2, "AJUSTES"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -2944,7 +2878,7 @@
 
     goto/16 :goto_1
 
-    .line 498
+    .line 479
     :cond_1
     const-string v2, "Acessos que o app precisa"
 
@@ -2956,17 +2890,17 @@
 
     if-eqz v2, :cond_2
 
-    .line 499
+    .line 480
     const-string v1, "Configura\u00e7\u00f5es essenciais para execu\u00e7\u00e3o e servi\u00e7os em segundo plano"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 500
+    .line 481
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_2
 
-    .line 501
+    .line 482
     :cond_2
     const-string v2, "Adiciona resetGuest"
 
@@ -2976,17 +2910,17 @@
 
     if-eqz v2, :cond_3
 
-    .line 502
+    .line 483
     const-string v1, "Redefine automaticamente a conta de convidado (Guest) durante a inje\u00e7\u00e3o"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 503
+    .line 484
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_2
 
-    .line 504
+    .line 485
     :cond_3
     const-string v2, "Notifica\u00e7\u00f5es, bateria"
 
@@ -3006,7 +2940,7 @@
 
     goto/16 :goto_0
 
-    .line 507
+    .line 488
     :cond_4
     const-string v2, "O pareamento do ADB acontece"
 
@@ -3016,17 +2950,17 @@
 
     if-eqz v2, :cond_5
 
-    .line 508
+    .line 489
     const-string v1, "O pareamento via depura\u00e7\u00e3o sem fio (ADB) \u00e9 executado em segundo plano. Conceda as permiss\u00f5es de Notifica\u00e7\u00f5es e Otimiza\u00e7\u00e3o de Bateria para ativar o servi\u00e7o."
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 509
+    .line 490
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_2
 
-    .line 510
+    .line 491
     :cond_5
     const-string v2, "Todas as permiss\u00f5es s\u00e3o necess\u00e1rias"
 
@@ -3038,22 +2972,22 @@
 
     if-eqz v2, :cond_6
 
-    .line 511
+    .line 492
     const-string v1, "\u26a0 Permiss\u00f5es do Sistema Obrigat\u00f3rias"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 512
+    .line 493
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 513
+    .line 494
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto/16 :goto_2
 
-    .line 514
+    .line 495
     :cond_6
     const-string v2, "bloqueado - faltam permiss\u00f5es"
 
@@ -3063,19 +2997,19 @@
 
     if-eqz v2, :cond_7
 
-    .line 515
+    .line 496
     const-string v1, "Status: Bloqueado (Permiss\u00f5es pendentes)"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 516
+    .line 497
     const v1, -0xb2b3
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_2
 
-    .line 517
+    .line 498
     :cond_7
     const-string v2, "Tudo certo"
 
@@ -3085,17 +3019,17 @@
 
     if-eqz v2, :cond_8
 
-    .line 518
+    .line 499
     const-string v1, "Status: Pronto para pareamento ADB"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 519
+    .line 500
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto/16 :goto_2
 
-    .line 520
+    .line 501
     :cond_8
     const-string v2, "CONCEDER PERMISS"
 
@@ -3111,24 +3045,24 @@
 
     if-eqz v2, :cond_9
 
-    .line 521
+    .line 502
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 522
+    .line 503
     filled-new-array {v7, v6}, [I
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    .line 523
+    .line 504
     sget-object v2, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setOrientation(Landroid/graphics/drawable/GradientDrawable$Orientation;)V
 
-    .line 524
+    .line 505
     invoke-static {p1, v5}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v2
@@ -3137,18 +3071,18 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 525
+    .line 506
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 526
+    .line 507
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 527
+    .line 508
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 528
+    .line 509
     goto/16 :goto_2
 
     :cond_9
@@ -3160,24 +3094,24 @@
 
     if-eqz v2, :cond_a
 
-    .line 529
+    .line 510
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v1}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 530
+    .line 511
     filled-new-array {v7, v6}, [I
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setColors([I)V
 
-    .line 531
+    .line 512
     sget-object v2, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setOrientation(Landroid/graphics/drawable/GradientDrawable$Orientation;)V
 
-    .line 532
+    .line 513
     invoke-static {p1, v5}, Lcom/mdk/ff/UIHelper;->dpToPx(Landroid/content/Context;I)I
 
     move-result v2
@@ -3186,18 +3120,18 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 533
+    .line 514
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 534
+    .line 515
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 535
+    .line 516
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 536
+    .line 517
     goto :goto_2
 
     :cond_a
@@ -3209,17 +3143,17 @@
 
     if-eqz v2, :cond_b
 
-    .line 537
+    .line 518
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 538
+    .line 519
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto :goto_2
 
-    .line 539
+    .line 520
     :cond_b
     const-string v2, "Reset Guest"
 
@@ -3245,50 +3179,50 @@
 
     if-eqz v1, :cond_f
 
-    .line 540
+    .line 521
     :cond_c
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 541
+    .line 522
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto :goto_2
 
-    .line 505
+    .line 486
     :cond_d
     :goto_0
     const-string v1, "Gerenciamento de permiss\u00f5es (Notifica\u00e7\u00f5es, Bateria e Sobreposi\u00e7\u00e3o)"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 506
+    .line 487
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_2
 
-    .line 496
+    .line 477
     :cond_e
     :goto_1
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 497
+    .line 478
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 545
+    .line 526
     :cond_f
     :goto_2
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_10
 
-    .line 546
+    .line 527
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 547
+    .line 528
     const/4 v0, 0x0
 
     :goto_3
@@ -3298,19 +3232,19 @@
 
     if-ge v0, v1, :cond_10
 
-    .line 548
+    .line 529
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
     invoke-static {v1, p1}, Lcom/mdk/ff/UIHelper;->traverseSettingsViews(Landroid/view/View;Landroid/content/Context;)V
 
-    .line 547
+    .line 528
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 551
+    .line 532
     :cond_10
     return-void
 .end method
@@ -3318,29 +3252,29 @@
 .method private static updateTitleText(Landroid/view/View;)V
     .locals 3
 
-    .line 294
+    .line 271
     if-nez p0, :cond_0
 
     return-void
 
-    .line 295
+    .line 272
     :cond_0
     instance-of v0, p0, Landroid/widget/TextView;
 
     if-eqz v0, :cond_4
 
-    .line 296
+    .line 273
     check-cast p0, Landroid/widget/TextView;
 
-    .line 297
+    .line 274
     invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 298
+    .line 275
     if-eqz v0, :cond_5
 
-    .line 299
+    .line 276
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -3349,7 +3283,7 @@
 
     move-result-object v0
 
-    .line 300
+    .line 277
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v1
@@ -3386,22 +3320,22 @@
 
     if-nez v1, :cond_1
 
-    .line 301
+    .line 278
     const-string v0, "AQUILES TEAM"
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 302
+    .line 279
     const/4 v0, -0x1
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 303
+    .line 280
     sget-object v0, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 304
+    .line 281
     const/4 v0, 0x2
 
     const/high16 v1, 0x41c00000    # 24.0f
@@ -3410,7 +3344,7 @@
 
     goto :goto_1
 
-    .line 305
+    .line 282
     :cond_1
     const-string v1, "Menu"
 
@@ -3420,14 +3354,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 306
+    .line 283
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_1
 
-    .line 307
+    .line 284
     :cond_2
     const-string v1, "DIGITE SUA CHAVE"
 
@@ -3437,14 +3371,14 @@
 
     if-eqz v1, :cond_3
 
-    .line 308
+    .line 285
     const v0, -0x222223
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_1
 
-    .line 309
+    .line 286
     :cond_3
     const-string v1, "CHAVE"
 
@@ -3454,28 +3388,28 @@
 
     if-eqz v0, :cond_5
 
-    .line 310
+    .line 287
     const v0, -0xd5d6
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 311
+    .line 288
     sget-object v0, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     goto :goto_1
 
-    .line 314
+    .line 291
     :cond_4
     instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_5
 
-    .line 315
+    .line 292
     check-cast p0, Landroid/view/ViewGroup;
 
-    .line 316
+    .line 293
     const/4 v0, 0x0
 
     :goto_0
@@ -3485,24 +3419,24 @@
 
     if-ge v0, v1, :cond_6
 
-    .line 317
+    .line 294
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
     invoke-static {v1}, Lcom/mdk/ff/UIHelper;->updateTitleText(Landroid/view/View;)V
 
-    .line 316
+    .line 293
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 314
+    .line 291
     :cond_5
     :goto_1
     nop
 
-    .line 320
+    .line 297
     :cond_6
     return-void
 .end method

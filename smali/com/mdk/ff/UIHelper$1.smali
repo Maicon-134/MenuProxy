@@ -34,14 +34,14 @@
         }
     .end annotation
 
-    .line 196
+    .line 173
     iput-object p1, p0, Lcom/mdk/ff/UIHelper$1;->val$etKey:Landroid/widget/EditText;
 
     iput-object p2, p0, Lcom/mdk/ff/UIHelper$1;->val$toggleBtn:Landroid/widget/TextView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 197
+    .line 174
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/mdk/ff/UIHelper$1;->visible:Z
@@ -54,24 +54,24 @@
 .method public onClick(Landroid/view/View;)V
     .locals 1
 
-    .line 200
+    .line 177
     iget-boolean p1, p0, Lcom/mdk/ff/UIHelper$1;->visible:Z
 
     xor-int/lit8 p1, p1, 0x1
 
     iput-boolean p1, p0, Lcom/mdk/ff/UIHelper$1;->visible:Z
 
-    .line 201
+    .line 178
     if-eqz p1, :cond_0
 
-    .line 202
+    .line 179
     iget-object p1, p0, Lcom/mdk/ff/UIHelper$1;->val$etKey:Landroid/widget/EditText;
 
     const/16 v0, 0x91
 
     invoke-virtual {p1, v0}, Landroid/widget/EditText;->setInputType(I)V
 
-    .line 203
+    .line 180
     iget-object p1, p0, Lcom/mdk/ff/UIHelper$1;->val$toggleBtn:Landroid/widget/TextView;
 
     const-string v0, "\ud83d\udd12"
@@ -80,7 +80,7 @@
 
     goto :goto_0
 
-    .line 205
+    .line 182
     :cond_0
     iget-object p1, p0, Lcom/mdk/ff/UIHelper$1;->val$etKey:Landroid/widget/EditText;
 
@@ -88,14 +88,14 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/EditText;->setInputType(I)V
 
-    .line 206
+    .line 183
     iget-object p1, p0, Lcom/mdk/ff/UIHelper$1;->val$toggleBtn:Landroid/widget/TextView;
 
     const-string v0, "\ud83d\udc41"
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 208
+    .line 185
     :goto_0
     iget-object p1, p0, Lcom/mdk/ff/UIHelper$1;->val$etKey:Landroid/widget/EditText;
 
@@ -109,6 +109,6 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 209
+    .line 186
     return-void
 .end method

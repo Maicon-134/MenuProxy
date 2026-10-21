@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 245
+    .line 222
     iput-object p1, p0, Lcom/mdk/ff/UIHelper$2;->val$activity:Landroid/app/Activity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 2
 
-    .line 249
+    .line 226
     :try_start_0
     new-instance p1, Landroid/content/Intent;
 
@@ -57,7 +57,7 @@
 
     invoke-direct {p1, v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 250
+    .line 227
     iget-object v0, p0, Lcom/mdk/ff/UIHelper$2;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
@@ -66,13 +66,13 @@
 
     goto :goto_0
 
-    .line 251
+    .line 228
     :catch_0
     move-exception p1
 
     :goto_0
     nop
 
-    .line 252
+    .line 229
     return-void
 .end method
