@@ -136,6 +136,8 @@
     .line 37
     invoke-static {p0, v0, p1, v1}, Lcom/mdk/ff/AdbManager;->postReplyNotification(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
 
+    invoke-static {p0, v0, p1}, Lcom/mdk/ff/UIHelper;->onAdbServiceDiscovered(Landroid/content/Context;Ljava/lang/String;I)V
+
     .line 38
     .line 39
     .line 40

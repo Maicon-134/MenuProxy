@@ -4763,6 +4763,8 @@
     .line 1
     invoke-direct {p0}, Lcom/mdk/ff/MainActivity;->disarmBypass()V
 
+    invoke-static {p0, p1}, Lcom/mdk/ff/UIHelper;->onTabSelected(Landroid/app/Activity;I)V
+
     .line 2
     .line 3
     .line 4
